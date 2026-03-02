@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CTF | Nisa Ozerdem</title>
+  <title>CTF — Nisa Ozerdem</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     .ctf-stats {
@@ -12,138 +12,42 @@
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
+    .ctf-stat { background: var(--bg); padding: 1.4rem; }
+    .ctf-stat:hover { background: var(--bg2); }
+    .cs-num { font-size: 1.8rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 0.3rem; letter-spacing: -0.03em; }
+    .cs-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
-    .ctf-stat {
-      background: var(--bg);
-      padding: 1.3rem 1.5rem;
-    }
+    .diff-easy   { color: var(--green); }
+    .diff-medium { color: #d97706; }
+    .diff-hard   { color: var(--red); }
 
-    .cs-num {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent3);
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
+    .status-solved   { color: var(--green); font-size: 0.76rem; font-weight: 500; }
+    .status-progress { color: #d97706; font-size: 0.76rem; }
 
-    .cs-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    .platforms { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .platform { background: var(--bg); padding: 1.4rem; }
+    .platform:hover { background: var(--bg2); }
+    .plat-name { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 0.35rem; }
+    .plat-desc { font-size: 0.78rem; color: var(--muted2); line-height: 1.6; margin-bottom: 0.5rem; }
+    .plat-url { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--muted); }
 
-    .ctf-table {
-      border: 1px solid var(--border);
-    }
-
-    .ctf-header {
-      display: grid;
-      grid-template-columns: 1fr 120px 100px 120px;
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .ctf-header span {
-      padding: 0.5rem 1rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-right: 1px solid var(--border);
-    }
-
-    .ctf-header span:last-child { border-right: none; }
-
-    .ctf-row {
-      display: grid;
-      grid-template-columns: 1fr 120px 100px 120px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-
-    .ctf-row:last-child { border-bottom: none; }
-    .ctf-row:hover { background: var(--bg2); }
-
-    .cr-cell {
-      padding: 0.9rem 1rem;
-      border-right: 1px solid var(--border);
-      font-size: 0.76rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .cr-cell:last-child { border-right: none; }
-
-    .cr-name { color: var(--white); font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 500; }
-    .cr-platform { color: var(--muted2); font-size: 0.72rem; }
-
-    .diff-badge {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      padding: 0.15rem 0.45rem;
-      border: 1px solid;
-    }
-
-    .diff-easy { color: var(--green); border-color: rgba(34,197,94,0.3); }
-    .diff-medium { color: var(--yellow); border-color: rgba(245,158,11,0.3); }
-    .diff-hard { color: var(--red); border-color: rgba(239,68,68,0.3); }
-
-    .status-solved { color: var(--green); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; }
-    .status-progress { color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; }
-
-    .platforms-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .platform-card {
-      background: var(--bg);
-      padding: 1.3rem 1.5rem;
-      transition: background 0.2s;
-    }
-
-    .platform-card:hover { background: var(--bg2); }
-
-    .pc-name {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-
-    .pc-desc { font-size: 0.74rem; color: var(--muted2); line-height: 1.6; }
-    .pc-url { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--accent3); margin-top: 0.5rem; }
-
-    @media (max-width: 820px) {
+    @media (max-width: 700px) {
       .ctf-stats { grid-template-columns: repeat(2, 1fr); }
-      .ctf-header, .ctf-row { grid-template-columns: 1fr 100px 90px; }
-      .ctf-header span:last-child, .cr-cell:last-child { display: none; }
-      .platforms-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
   <div class="social-bar">
     <a href="https://github.com/nisaozerdem" target="_blank" class="social-link">GH</a>
     <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="social-link">LI</a>
-    <a href="mailto:nisa.ozerdem@email.com" class="social-link">@</a>
+    <a href="mailto:[votre email]" class="social-link">@</a>
   </div>
 
   <nav>
     <a href="index.html" class="nav-logo">Nisa <span class="accent">Ozerdem</span></a>
-    <div class="nav-center"><span>Administration</span><span class="sep">•</span><span>Réseaux</span><span class="sep">•</span><span>Cybersécurité</span></div>
+    <div class="nav-center">Administration · Réseaux · Cybersécurité</div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="about.html">Présentation</a></li>
@@ -167,126 +71,53 @@
 
     <div class="section reveal">
       <div class="section-label">Statistiques</div>
-      <h2 class="section-title">Mon activité CTF</h2>
-
+      <h2 class="section-title">Activité</h2>
       <div class="ctf-stats">
-        <div class="ctf-stat">
-          <div class="cs-num">12+</div>
-          <div class="cs-label">Challenges résolus</div>
-        </div>
-        <div class="ctf-stat">
-          <div class="cs-num">3</div>
-          <div class="cs-label">Plateformes</div>
-        </div>
-        <div class="ctf-stat">
-          <div class="cs-num">5</div>
-          <div class="cs-label">Catégories</div>
-        </div>
-        <div class="ctf-stat">
-          <div class="cs-num acc">Top 25%</div>
-          <div class="cs-label">Classement HTB</div>
-        </div>
+        <div class="ctf-stat"><div class="cs-num">12+</div><div class="cs-label">Challenges résolus</div></div>
+        <div class="ctf-stat"><div class="cs-num">3</div><div class="cs-label">Plateformes</div></div>
+        <div class="ctf-stat"><div class="cs-num">5</div><div class="cs-label">Catégories</div></div>
+        <div class="ctf-stat"><div class="cs-num" style="font-size:1.2rem;">Top 25%</div><div class="cs-label">Classement HTB</div></div>
       </div>
 
-      <div class="ctf-table">
-        <div class="ctf-header">
-          <span>Challenge / Machine</span>
-          <span>Plateforme</span>
-          <span>Difficulté</span>
-          <span>Statut</span>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Lame</div>
-          <div class="cr-cell cr-platform">Hack The Box</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Blue</div>
-          <div class="cr-cell cr-platform">Hack The Box</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Jerry</div>
-          <div class="cr-cell cr-platform">Hack The Box</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Basic Pentesting</div>
-          <div class="cr-cell cr-platform">TryHackMe</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Linux PrivEsc</div>
-          <div class="cr-cell cr-platform">TryHackMe</div>
-          <div class="cr-cell"><span class="diff-badge diff-medium">Medium</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Network Miner</div>
-          <div class="cr-cell cr-platform">TryHackMe</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Armageddon</div>
-          <div class="cr-cell cr-platform">Hack The Box</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Beep</div>
-          <div class="cr-cell cr-platform">Hack The Box</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-solved">&#10003; Résolu</div>
-        </div>
-        <div class="ctf-row">
-          <div class="cr-cell cr-name">Optimum</div>
-          <div class="cr-cell cr-platform">Hack The Box</div>
-          <div class="cr-cell"><span class="diff-badge diff-easy">Easy</span></div>
-          <div class="cr-cell status-progress">&#8230; En cours</div>
-        </div>
-      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Challenge / Machine</th>
+            <th style="width:140px;">Plateforme</th>
+            <th style="width:110px;">Difficulté</th>
+            <th style="width:110px;">Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Lame</td><td>Hack The Box</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Blue</td><td>Hack The Box</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Jerry</td><td>Hack The Box</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Basic Pentesting</td><td>TryHackMe</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Linux PrivEsc</td><td>TryHackMe</td><td class="diff-medium">Medium</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Network Miner</td><td>TryHackMe</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Armageddon</td><td>Hack The Box</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Beep</td><td>Hack The Box</td><td class="diff-easy">Easy</td><td class="status-solved">✓ Résolu</td></tr>
+          <tr><td>Optimum</td><td>Hack The Box</td><td class="diff-easy">Easy</td><td class="status-progress">En cours</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="section reveal">
       <div class="section-label">Outils &amp; Plateformes</div>
       <h2 class="section-title">Environnement de pratique</h2>
-
-      <div class="platforms-grid">
-        <div class="platform-card">
-          <div class="pc-name">Hack The Box</div>
-          <div class="pc-desc">Plateforme de pentesting légal avec des machines vulnérables et des challenges variés (Web, Réseaux, Pwn, Crypto...).</div>
-          <div class="pc-url">hackthebox.com</div>
-        </div>
-        <div class="platform-card">
-          <div class="pc-name">TryHackMe</div>
-          <div class="pc-desc">Apprentissage guidé de la cybersécurité avec des rooms thématiques, idéal pour progresser pas à pas.</div>
-          <div class="pc-url">tryhackme.com</div>
-        </div>
-        <div class="platform-card">
-          <div class="pc-name">Root Me</div>
-          <div class="pc-desc">Plateforme française de challenges CTF couvrant la sécurité réseau, web, forensics et cryptographie.</div>
-          <div class="pc-url">root-me.org</div>
-        </div>
-        <div class="platform-card">
-          <div class="pc-name">Kali Linux + Home Lab</div>
-          <div class="pc-desc">Environnement Proxmox personnel avec VMs isolées pour pratiquer Metasploit, Nmap, Burp Suite, Wireshark...</div>
-          <div class="pc-url">Home Lab — Proxmox</div>
-        </div>
+      <div class="platforms">
+        <div class="platform"><div class="plat-name">Hack The Box</div><div class="plat-desc">Machines vulnérables et challenges variés — Web, Réseaux, Pwn, Crypto.</div><div class="plat-url">hackthebox.com</div></div>
+        <div class="platform"><div class="plat-name">TryHackMe</div><div class="plat-desc">Apprentissage guidé avec rooms thématiques, idéal pour progresser pas à pas.</div><div class="plat-url">tryhackme.com</div></div>
+        <div class="platform"><div class="plat-name">Root Me</div><div class="plat-desc">Plateforme française — sécurité réseau, web, forensics, cryptographie.</div><div class="plat-url">root-me.org</div></div>
+        <div class="platform"><div class="plat-name">Home Lab — Proxmox</div><div class="plat-desc">VMs Kali Linux, Metasploitable, Windows vulnérables. Metasploit, Nmap, Burp Suite, Wireshark.</div><div class="plat-url">Proxmox VE</div></div>
       </div>
     </div>
-
   </div>
 
   <footer>
-    <span class="footer-copy">&copy; 2026 - Portfolio créé par <span>Nisa Ozerdem</span></span>
-    <a href="#" class="footer-back">Haut de page &uarr;</a>
+    <span class="footer-copy">© 2026 — <span>Nisa Ozerdem</span></span>
+    <a href="#" class="footer-back">↑ Haut</a>
   </footer>
-
   <script src="nav.js"></script>
 </body>
 </html>

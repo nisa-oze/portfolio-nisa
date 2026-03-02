@@ -3,280 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compétences | Nisa Ozerdem</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .sk-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.9rem;
-    }
-
-    .sk-label-tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.58rem;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 1px solid var(--border2);
-      padding: 0.15rem 0.45rem;
-    }
-
-    .sk-pct {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent3);
-    }
-
-    .sk-name {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.35rem;
-    }
-
-    .sk-desc {
-      font-size: 0.74rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 0.9rem;
-    }
-
-    .outils-list {
-      border: 1px solid var(--border);
-    }
-
-    .outil-row {
-      display: grid;
-      grid-template-columns: 140px 1fr auto;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-
-    .outil-row:last-child { border-bottom: none; }
-    .outil-row:hover { background: var(--bg2); }
-
-    .or-name {
-      padding: 0.75rem 1rem;
-      border-right: 1px solid var(--border);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--white);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-    }
-
-    .or-desc {
-      padding: 0.75rem 1rem;
-      font-size: 0.74rem;
-      color: var(--muted2);
-      border-right: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-    }
-
-    .or-level {
-      padding: 0.75rem 1rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-    }
-
-    .lvl-expert { color: var(--green); }
-    .lvl-advanced { color: var(--accent3); }
-    .lvl-intermediate { color: var(--yellow); }
-    .lvl-beginner { color: var(--muted2); }
-
-    @media (max-width: 700px) {
-      .outil-row { grid-template-columns: 1fr; }
-      .or-name, .or-desc { border-right: none; }
-    }
-  </style>
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
+  <title>Compétences - Nisa Ozerdem | BTS SIO SISR | Administration Systèmes & Réseaux</title>
+  <meta name="description" content="Découvrez les compétences BTS SIO SISR de Nisa Ozerdem en administration systèmes, réseaux et cybersécurité.">
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
-  <div class="social-bar">
-    <a href="https://github.com/nisaozerdem" target="_blank" class="social-link">GH</a>
-    <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="social-link">LI</a>
-    <a href="mailto:nisa.ozerdem@email.com" class="social-link">@</a>
-  </div>
-
-  <nav>
-    <a href="index.html" class="nav-logo">Nisa <span class="accent">Ozerdem</span></a>
-    <div class="nav-center"><span>Administration</span><span class="sep">•</span><span>Réseaux</span><span class="sep">•</span><span>Cybersécurité</span></div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="about.html">Présentation</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="competences.html">Compétences</a></li>
-      <li><a href="experiences.html">Expériences</a></li>
-      <li><a href="stages.html">Stages</a></li>
-      <li><a href="veille.html">Veille</a></li>
-      <li><a href="ctf.html">CTF</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-  </nav>
-
-  <div class="page-wrap">
-    <div class="page-header">
-      <div class="breadcrumb"><a href="index.html">~</a><span class="sep">/</span><span>compétences</span></div>
-      <h1>Compétences</h1>
-      <p class="page-sub">Stack technique et niveaux de maîtrise</p>
+  <header role="banner">
+    <div class="row">
+      <nav class="nav" role="navigation" aria-label="Navigation principale">
+        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__items" id="nav-menu">
+          <li class="nav__item"><a href="index.html"       class="nav__link">Accueil</a></li>
+          <li class="nav__item"><a href="cv.html"          class="nav__link">CV</a></li>
+          <li class="nav__item"><a href="experiences.html" class="nav__link">Expériences</a></li>
+          <li class="nav__item"><a href="about.html"       class="nav__link">Présentation</a></li>
+          <li class="nav__item"><a href="veille.html"      class="nav__link">Veille</a></li>
+          <li class="nav__item"><a href="stages.html"      class="nav__link">Stages</a></li>
+          <li class="nav__item"><a href="competences.html" class="nav__link nav__link--active">Compétences</a></li>
+          <li class="nav__item"><a href="contact.html"     class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- SKILL CARDS -->
-    <div class="section reveal">
-      <div class="section-label">Domaines</div>
-      <h2 class="section-title">Expertise technique</h2>
-      <p class="section-desc">Les grandes familles de compétences développées durant ma formation et en autonomie.</p>
+  <main role="main">
 
-      <div class="card-grid">
-        <div class="card reveal">
-          <div class="sk-header"><span class="sk-label-tag">SYS_ADM</span><span class="sk-pct">92%</span></div>
-          <div class="sk-name">Administration Systèmes</div>
-          <div class="sk-desc">Gestion serveurs Linux &amp; Windows, virtualisation, scripting et automatisation des tâches d'administration.</div>
-          <div class="tags" style="margin-bottom:0.8rem">
-            <span class="tag blue">Linux</span><span class="tag blue">Windows Server</span><span class="tag">VMware</span><span class="tag">Bash</span><span class="tag">PowerShell</span>
+    <!-- ***** Compétences ***** -->
+    <section class="about" id="competences">
+      <div class="row">
+        <h2>Mes Compétences BTS SIO SISR</h2>
+        <div class="about__content">
+          <div class="about__text">
+
+            <p>Tout au long de ma formation en BTS SIO option SISR, j'ai développé des compétences
+               techniques et professionnelles réparties en trois blocs principaux, mises en œuvre
+               lors de mes stages en entreprise :</p>
+
+            <!-- ── BLOC 1 ────────────────────────────────── -->
+            <h3>Bloc 1 — Support et mise à disposition des services informatiques</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Compétence</th>
+                  <th>Mise en œuvre en stage</th>
+                  <th>Réalisé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="comp-code">B1.1.2</span></td>
+                  <td>Mettre en place et vérifier les niveaux d'habilitation</td>
+                  <td>Gestion des comptes et droits Active Directory — GPO (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B1.1.4</span></td>
+                  <td>Gérer des sauvegardes</td>
+                  <td>Scripts Bash d'automatisation des sauvegardes serveurs Linux (stage 2023)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B1.2.1</span></td>
+                  <td>Traiter des demandes concernant les services réseau et système</td>
+                  <td>Gestion des tickets support N1/N2 via GLPI (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B1.2.3</span></td>
+                  <td>Collecter, suivre et orienter des demandes</td>
+                  <td>Suivi des incidents utilisateurs, escalade N2/N3 (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B1.6.3</span></td>
+                  <td>Mettre en œuvre des outils et stratégies de veille informationnelle</td>
+                  <td>Veille régulière CERT-FR, ANSSI, Feedly — voir page Veille</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- ── BLOC 2 ────────────────────────────────── -->
+            <h3>Bloc 2 — Administration des systèmes et des réseaux (SISR)</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Compétence</th>
+                  <th>Mise en œuvre en stage</th>
+                  <th>Réalisé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="comp-code">B2.1.3</span></td>
+                  <td>Maquetter et prototyper une solution d'infrastructure</td>
+                  <td>Maquettage réseau entreprise fictive sous GNS3 — projet BTS 2024</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.2.1</span></td>
+                  <td>Installer et configurer des éléments d'infrastructure</td>
+                  <td>Switches Cisco (VLANs, STP) ; déploiement pfSense (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.2.2</span></td>
+                  <td>Rédiger ou mettre à jour la documentation technique</td>
+                  <td>Documentation de l'infrastructure réseau (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.2.5</span></td>
+                  <td>Installer et configurer des éléments pour la continuité des services</td>
+                  <td>Mise en place PRA cloud Azure — projet 2024</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.3.1</span></td>
+                  <td>Administrer sur site et à distance des éléments d'une infrastructure</td>
+                  <td>Administration serveurs Debian/Ubuntu, services (stage 2023)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.3.2</span></td>
+                  <td>Automatiser des tâches d'administration</td>
+                  <td>Scripts Bash : sauvegardes automatiques, rapports système (stage 2023)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.3.3</span></td>
+                  <td>Gérer des indicateurs et des fichiers d'activité</td>
+                  <td>Configuration Zabbix — supervision 30+ équipements (stage 2023)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B2.3.4</span></td>
+                  <td>Identifier, qualifier et réagir face à un incident</td>
+                  <td>Diagnostic et résolution d'incidents réseau et système (stages 2023 &amp; 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- ── BLOC 3 ────────────────────────────────── -->
+            <h3>Bloc 3 — Cybersécurité des services informatiques</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Compétence</th>
+                  <th>Mise en œuvre</th>
+                  <th>Réalisé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="comp-code">B3.3.2</span></td>
+                  <td>Identifier les menaces et mettre en œuvre les défenses appropriées</td>
+                  <td>Déploiement pfSense, règles firewall et VPN (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B3.3.3</span></td>
+                  <td>Gérer les accès et les privilèges appropriés</td>
+                  <td>GPO et habilitations Active Directory (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B3.4.1</span></td>
+                  <td>Caractériser les risques liés à l'utilisation malveillante d'un service</td>
+                  <td>Veille CVE, bulletins ANSSI &amp; CERT-FR</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B3.5A.1</span></td>
+                  <td>Participer à la vérification de la sûreté d'une infrastructure</td>
+                  <td>Audit de la configuration réseau en production (stage 2024)</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+                <tr>
+                  <td><span class="comp-code">B3.5A.4</span></td>
+                  <td>Prévenir les attaques</td>
+                  <td>Pratique CTF — pentest, exploitation, home lab &amp; HTB</td>
+                  <td class="comp-ok">✓ Oui</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p style="font-style: italic; margin-top: 2rem;">
+              Ces compétences ont été développées et mises en pratique lors de mes stages en entreprise,
+              mes projets personnels et ma pratique de la cybersécurité.
+            </p>
+
           </div>
-          <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
-        </div>
-
-        <div class="card reveal">
-          <div class="sk-header"><span class="sk-label-tag">NET_ADM</span><span class="sk-pct">88%</span></div>
-          <div class="sk-name">Administration Réseaux</div>
-          <div class="sk-desc">Configuration de routeurs, switches, VLAN, protocoles de routage et architectures réseau d'entreprise.</div>
-          <div class="tags" style="margin-bottom:0.8rem">
-            <span class="tag blue">Cisco</span><span class="tag blue">OSPF</span><span class="tag">BGP</span><span class="tag">VLAN</span><span class="tag">STP</span>
-          </div>
-          <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
-        </div>
-
-        <div class="card reveal">
-          <div class="sk-header"><span class="sk-label-tag">SEC_OPS</span><span class="sk-pct">80%</span></div>
-          <div class="sk-name">Cybersécurité</div>
-          <div class="sk-desc">Firewalls, VPN, politiques de sécurité, audits d'infrastructure et pratique des CTF.</div>
-          <div class="tags" style="margin-bottom:0.8rem">
-            <span class="tag blue">Firewall</span><span class="tag blue">VPN</span><span class="tag">IDS/IPS</span><span class="tag">SSL/TLS</span><span class="tag">Pentest</span>
-          </div>
-          <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
-        </div>
-
-        <div class="card reveal">
-          <div class="sk-header"><span class="sk-label-tag">CLOUD</span><span class="sk-pct">75%</span></div>
-          <div class="sk-name">Cloud &amp; Virtualisation</div>
-          <div class="sk-desc">Déploiement d'infrastructures cloud hybrides, conteneurisation et orchestration de services.</div>
-          <div class="tags" style="margin-bottom:0.8rem">
-            <span class="tag blue">Azure</span><span class="tag blue">Docker</span><span class="tag">Proxmox</span><span class="tag">Kubernetes</span>
-          </div>
-          <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
-        </div>
-
-        <div class="card reveal">
-          <div class="sk-header"><span class="sk-label-tag">DEV_OPS</span><span class="sk-pct">70%</span></div>
-          <div class="sk-name">Automatisation &amp; DevOps</div>
-          <div class="sk-desc">Automatisation des tâches d'administration, CI/CD et infrastructure as code.</div>
-          <div class="tags" style="margin-bottom:0.8rem">
-            <span class="tag blue">Ansible</span><span class="tag blue">Terraform</span><span class="tag">Python</span><span class="tag">Git</span><span class="tag">YAML</span>
-          </div>
-          <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
-        </div>
-
-        <div class="card reveal">
-          <div class="sk-header"><span class="sk-label-tag">MONITOR</span><span class="sk-pct">85%</span></div>
-          <div class="sk-name">Supervision &amp; Monitoring</div>
-          <div class="sk-desc">Surveillance d'infrastructures, alerting, analyse des performances et des logs système.</div>
-          <div class="tags" style="margin-bottom:0.8rem">
-            <span class="tag blue">Zabbix</span><span class="tag blue">Grafana</span><span class="tag">Nagios</span><span class="tag">Prometheus</span><span class="tag">Wireshark</span>
-          </div>
-          <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
         </div>
       </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <ul class="footer__social-links">
+        <li class="footer__social-link-item">
+          <a href="https://github.com/[votre-github]" target="_blank" title="GitHub">
+            <img src="./images/github.svg" class="footer__social-image" alt="GitHub">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" title="LinkedIn">
+            <img src="./images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
+          </a>
+        </li>
+      </ul>
+      <p>&copy; 2026 - Portfolio créé par <a href="index.html" class="link">Nisa Ozerdem</a></p>
     </div>
-
-    <!-- OUTILS TABLE -->
-    <div class="section reveal">
-      <div class="section-label">Détail</div>
-      <h2 class="section-title">Outils &amp; Technologies</h2>
-      <p class="section-desc">Inventaire détaillé des outils maîtrisés.</p>
-
-      <div class="outils-list">
-        <div class="outil-row">
-          <div class="or-name">Linux (Debian/Ubuntu)</div>
-          <div class="or-desc">Administration serveur, scripting Bash, gestion des services systemd</div>
-          <div class="or-level lvl-expert">Expert</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Windows Server</div>
-          <div class="or-desc">Active Directory, GPO, DNS, DHCP, IIS, PowerShell</div>
-          <div class="or-level lvl-expert">Expert</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Cisco IOS</div>
-          <div class="or-desc">Configuration routeurs &amp; switches, VLAN, OSPF, BGP, ACL</div>
-          <div class="or-level lvl-advanced">Avancé</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">pfSense / OPNsense</div>
-          <div class="or-desc">Firewall, VPN IPSec/OpenVPN, règles NAT, monitoring</div>
-          <div class="or-level lvl-advanced">Avancé</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">VMware / Proxmox</div>
-          <div class="or-desc">Virtualisation d'infrastructure, snapshots, clustering</div>
-          <div class="or-level lvl-advanced">Avancé</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Docker</div>
-          <div class="or-desc">Conteneurisation d'applications, Docker Compose, réseaux Docker</div>
-          <div class="or-level lvl-advanced">Avancé</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Microsoft Azure</div>
-          <div class="or-desc">VM, VNet, NSG, Azure AD, App Service, backup</div>
-          <div class="or-level lvl-intermediate">Intermédiaire</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Ansible</div>
-          <div class="or-desc">Playbooks d'automatisation, provisioning de serveurs Linux</div>
-          <div class="or-level lvl-intermediate">Intermédiaire</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Grafana / Zabbix</div>
-          <div class="or-desc">Dashboards, alerting, supervision réseau et système</div>
-          <div class="or-level lvl-advanced">Avancé</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Wireshark / Nmap</div>
-          <div class="or-desc">Analyse de trames réseau, audit de ports, reconnaissance</div>
-          <div class="or-level lvl-advanced">Avancé</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Git / GitHub</div>
-          <div class="or-desc">Versioning, branches, pull requests, GitHub Pages</div>
-          <div class="or-level lvl-intermediate">Intermédiaire</div>
-        </div>
-        <div class="outil-row">
-          <div class="or-name">Python / Bash</div>
-          <div class="or-desc">Scripting d'automatisation, traitement de données, outils pentest</div>
-          <div class="or-level lvl-intermediate">Intermédiaire</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <footer>
-    <span class="footer-copy">&copy; 2026 - Portfolio créé par <span>Nisa Ozerdem</span></span>
-    <a href="#" class="footer-back">Haut de page &uarr;</a>
   </footer>
 
-  <script src="nav.js"></script>
+  <a href="#top" class="back-to-top" title="Back to Top" aria-label="Retour en haut">↑</a>
+  <script src="./index.js"></script>
 </body>
 </html>

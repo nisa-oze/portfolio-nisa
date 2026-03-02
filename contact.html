@@ -1,163 +1,63 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Nisa Ozerdem</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact — Nisa Ozerdem</title>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 3rem;
-      align-items: start;
-    }
+    @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 
-    .contact-left h3 {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.7rem;
-    }
+    .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:3.5rem;align-items:start}
 
-    .contact-left p {
-      font-size: 0.82rem;
-      color: var(--muted2);
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
+    .contact-left h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:.7rem}
+    .contact-left p{font-size:.88rem;color:var(--muted2);line-height:1.8;margin-bottom:2rem}
 
-    .contact-items {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border: 1px solid var(--border);
-    }
+    .ci-list{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    .ci{display:flex;align-items:center;border-bottom:1px solid var(--border);text-decoration:none;transition:background .18s}
+    .ci:last-child{border-bottom:none}
+    .ci:hover{background:rgba(59,130,246,.07)}
+    .ci-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);font-family:'Fira Code',monospace;font-size:.58rem;color:var(--accent2);flex-shrink:0;background:rgba(59,130,246,.04)}
+    .ci-body{padding:.65rem 1rem}
+    .ci-label{font-family:'Fira Code',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.1rem}
+    .ci-val{font-size:.78rem;color:var(--text2)}
+    .ci:hover .ci-val{color:var(--text)}
 
-    .ci {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-      text-decoration: none;
-    }
+    .form-card{background:var(--navy3);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .form-head{padding:1rem 1.5rem;background:var(--navy2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+    .f-dot{width:8px;height:8px;border-radius:50%}
+    .f-dot-r{background:#ff5f57}.f-dot-y{background:#febc2e}.f-dot-g{background:#28c840}
+    .form-body{padding:0}
 
-    .ci:last-child { border-bottom: none; }
-    .ci:hover { background: var(--bg2); }
+    .cf-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+    .cf-field{border-bottom:1px solid var(--border);transition:background .18s}
+    .cf-field:focus-within{background:rgba(59,130,246,.05)}
+    .cf-row .cf-field:first-child{border-right:1px solid var(--border);border-bottom:none}
+    .cf-row .cf-field:last-child{border-bottom:none}
+    .cf-field.full{border-bottom:1px solid var(--border)}
+    .cf-field.full:last-of-type{border-bottom:none}
+    .cf-field label{display:block;font-family:'Fira Code',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.7rem 1.2rem 0;transition:color .18s}
+    .cf-field:focus-within label{color:var(--accent2)}
+    .cf-field input,.cf-field textarea{display:block;width:100%;background:transparent;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:.35rem 1.2rem .9rem;outline:none;resize:none}
+    .cf-field input::placeholder,.cf-field textarea::placeholder{color:var(--muted);font-size:.82rem}
+    .cf-field textarea{min-height:150px}
+    .form-foot{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:var(--navy2);border-top:1px solid var(--border)}
+    .form-hint{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--muted)}
 
-    .ci-icon {
-      width: 46px; height: 46px;
-      display: flex; align-items: center; justify-content: center;
-      border-right: 1px solid var(--border);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-
-    .ci-body { padding: 0.65rem 1rem; }
-    .ci-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.1rem; }
-    .ci-val { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--text); }
-    .ci:hover .ci-val { color: var(--accent3); }
-
-    /* FORM */
-    .contact-form {
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .cf-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .cf-field {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cf-row .cf-field:first-child { border-right: 1px solid var(--border); }
-    .cf-field.full { grid-column: 1 / -1; }
-
-    .cf-field label {
-      display: block;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0.55rem 0.9rem 0;
-      transition: color 0.2s;
-    }
-
-    .cf-field:focus-within label { color: var(--accent3); }
-
-    .cf-field input,
-    .cf-field textarea {
-      display: block;
-      width: 100%;
-      background: transparent;
-      border: none;
-      color: var(--text);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      padding: 0.35rem 0.9rem 0.8rem;
-      outline: none;
-      resize: none;
-    }
-
-    .cf-field:focus-within { background: rgba(45,127,249,0.03); }
-    .cf-field textarea { min-height: 140px; }
-
-    .cf-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 0.9rem;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-    }
-
-    .cf-hint { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: var(--muted); }
-
-    .cf-submit {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 0.6rem 1.3rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .cf-submit:hover {
-      background: var(--accent2);
-      box-shadow: 0 4px 20px rgba(45,127,249,0.35);
-    }
-
-    @media (max-width: 820px) {
-      .contact-layout { grid-template-columns: 1fr; }
-      .cf-row { grid-template-columns: 1fr; }
-      .cf-row .cf-field:first-child { border-right: none; }
-    }
+    @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.cf-row{grid-template-columns:1fr}.cf-row .cf-field:first-child{border-right:none;border-bottom:1px solid var(--border)}}
   </style>
 </head>
 <body>
-
-  <div class="notif" id="notif">&#10003; Message envoyé avec succès</div>
-
+  <div class="notif" id="notif">✓ Message envoyé avec succès</div>
   <div class="social-bar">
     <a href="https://github.com/nisaozerdem" target="_blank" class="social-link">GH</a>
     <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="social-link">LI</a>
-    <a href="mailto:nisa.ozerdem@email.com" class="social-link">@</a>
+    <a href="mailto:[votre-email]" class="social-link">@</a>
   </div>
-
   <nav>
     <a href="index.html" class="nav-logo">Nisa <span class="accent">Ozerdem</span></a>
-    <div class="nav-center"><span>Administration</span><span class="sep">•</span><span>Réseaux</span><span class="sep">•</span><span>Cybersécurité</span></div>
+    <div class="nav-center"><span>Administration</span><span class="sep">·</span><span>Réseaux</span><span class="sep">·</span><span>Cybersécurité</span></div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="about.html">Présentation</a></li>
@@ -166,108 +66,54 @@
       <li><a href="experiences.html">Expériences</a></li>
       <li><a href="stages.html">Stages</a></li>
       <li><a href="veille.html">Veille</a></li>
-      <li><a href="ctf.html">CTF</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </nav>
-
   <div class="page-wrap">
     <div class="page-header">
       <div class="breadcrumb"><a href="index.html">~</a><span class="sep">/</span><span>contact</span></div>
       <h1>Contact</h1>
-      <p class="page-sub">N'hésitez pas à me contacter pour toute opportunité</p>
+      <p class="page-sub">Disponible pour toute opportunité professionnelle</p>
     </div>
-
     <div class="section reveal">
-      <div class="contact-layout">
+      <div class="contact-grid">
         <div class="contact-left">
           <h3>Travaillons ensemble</h3>
-          <p>Un projet d'infrastructure, une mission en administration systèmes et réseaux, une opportunité de stage ou d'alternance ? N'hésitez pas !</p>
-
-          <div class="contact-items">
-            <a href="mailto:nisa.ozerdem@email.com" class="ci">
-              <div class="ci-icon">@</div>
-              <div class="ci-body">
-                <div class="ci-label">Email</div>
-                <div class="ci-val">nisa.ozerdem@email.com</div>
-              </div>
-            </a>
-            <div class="ci">
-              <div class="ci-icon">FR</div>
-              <div class="ci-body">
-                <div class="ci-label">Localisation</div>
-                <div class="ci-val">Rennes, Bretagne, France 🇫🇷</div>
-              </div>
-            </div>
-            <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="ci">
-              <div class="ci-icon">LI</div>
-              <div class="ci-body">
-                <div class="ci-label">LinkedIn</div>
-                <div class="ci-val">linkedin.com/in/nisa-ozerdem</div>
-              </div>
-            </a>
-            <a href="https://github.com/nisaozerdem" target="_blank" class="ci">
-              <div class="ci-icon">GH</div>
-              <div class="ci-body">
-                <div class="ci-label">GitHub</div>
-                <div class="ci-val">github.com/nisaozerdem</div>
-              </div>
-            </a>
+          <p>Stage, alternance ou projet en infrastructure ou cybersécurité ? N'hésitez pas à m'écrire, je réponds sous 24h.</p>
+          <div class="ci-list">
+            <a href="mailto:[votre-email]" class="ci"><div class="ci-icon">@</div><div class="ci-body"><div class="ci-label">Email</div><div class="ci-val">[À compléter]</div></div></a>
+            <div class="ci"><div class="ci-icon">FR</div><div class="ci-body"><div class="ci-label">Localisation</div><div class="ci-val">Rennes, Bretagne, France</div></div></div>
+            <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="ci"><div class="ci-icon">LI</div><div class="ci-body"><div class="ci-label">LinkedIn</div><div class="ci-val">linkedin.com/in/nisa-ozerdem</div></div></a>
+            <a href="https://github.com/nisaozerdem" target="_blank" class="ci"><div class="ci-icon">GH</div><div class="ci-body"><div class="ci-label">GitHub</div><div class="ci-val">github.com/nisaozerdem</div></div></a>
           </div>
-
-          <div class="terminal" style="margin-top:1.5rem">
-            <div class="term-bar">
-              <span class="tb tb-r"></span><span class="tb tb-y"></span><span class="tb tb-g"></span>
-              <span class="term-title">contact.sh</span>
-            </div>
-            <div class="term-body">
-              <div class="tl"><span class="tl-p">$</span><span class="tl-cmd">echo $AVAILABILITY</span></div>
-              <div class="tl-out grn">&#9679; Disponible pour stage / alternance</div>
-              <div class="tl-blank"></div>
-              <div class="tl"><span class="tl-p">$</span><span class="tl-cmd">echo $RESPONSE_TIME</span></div>
-              <div class="tl-out hl">Réponse sous 24h</div>
-              <div class="tl-blank"></div>
-              <div class="tl"><span class="tl-p">$</span><span class="tl-cursor"></span></div>
-            </div>
+          <div class="kv-list" style="margin-top:1.5rem">
+            <div class="kv-row"><span class="kv-key">Disponibilité</span><span class="kv-val" style="color:var(--green);font-weight:600">Stage / alternance</span></div>
+            <div class="kv-row"><span class="kv-key">Réponse</span><span class="kv-val">Sous 24h</span></div>
           </div>
         </div>
 
-        <div>
-          <form class="contact-form" id="contact-form">
-            <div class="cf-row">
-              <div class="cf-field">
-                <label for="name">Votre nom</label>
-                <input type="text" id="name" placeholder="John Doe" />
-              </div>
-              <div class="cf-field">
-                <label for="email">Votre email</label>
-                <input type="email" id="email" placeholder="john@exemple.com" />
-              </div>
-            </div>
-            <div class="cf-field full" style="border-bottom:1px solid var(--border)">
-              <label for="subject">Sujet</label>
-              <input type="text" id="subject" placeholder="Proposition de stage / Opportunité" />
-            </div>
-            <div class="cf-field full">
-              <label for="message">Message</label>
-              <textarea id="message" placeholder="Décrivez votre projet ou votre demande..."></textarea>
-            </div>
-            <div class="cf-footer">
-              <span class="cf-hint">nisa@rennes:~/contact$</span>
-              <button type="button" class="cf-submit" id="send-btn">Envoyer &rarr;</button>
-            </div>
-          </form>
+        <div class="form-card" id="contact-form">
+          <div class="form-head">
+            <span class="f-dot f-dot-r"></span>
+            <span class="f-dot f-dot-y"></span>
+            <span class="f-dot f-dot-g"></span>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label for="name">Nom</label><input type="text" id="name" placeholder="Votre nom" autocomplete="name"/></div>
+            <div class="cf-field"><label for="email">Email</label><input type="email" id="email" placeholder="votre@email.com" autocomplete="email"/></div>
+          </div>
+          <div class="cf-field full"><label for="subject">Sujet</label><input type="text" id="subject" placeholder="Objet de votre message"/></div>
+          <div class="cf-field full"><label for="message">Message</label><textarea id="message" placeholder="Votre message…"></textarea></div>
+          <div class="form-foot">
+            <span class="form-hint">Tous les champs sont obligatoires</span>
+            <button type="button" class="btn btn-primary" id="send-btn">Envoyer →</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <span class="footer-copy">&copy; 2026 - Portfolio créé par <span>Nisa Ozerdem</span></span>
-    <a href="#" class="footer-back">Haut de page &uarr;</a>
-  </footer>
-
+  <footer><span class="footer-copy">© 2026 — <span>Nisa Ozerdem</span></span><a href="#" class="footer-back">↑ Haut</a></footer>
   <script src="nav.js"></script>
 </body>
 </html>
