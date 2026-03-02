@@ -4,141 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
-  <title>Expériences - Nisa Ozerdem | Administration Systèmes & Réseaux</title>
-  <meta name="description" content="Découvrez les expériences professionnelles de Nisa Ozerdem en administration systèmes, réseaux et cybersécurité.">
+  <title>Expériences — Nisa Ozerdem</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-
-  <header role="banner">
-    <div class="row">
-      <nav class="nav" role="navigation" aria-label="Navigation principale">
-        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav__items" id="nav-menu">
-          <li class="nav__item"><a href="index.html"       class="nav__link">Accueil</a></li>
-          <li class="nav__item"><a href="cv.html"          class="nav__link">CV</a></li>
-          <li class="nav__item"><a href="experiences.html" class="nav__link nav__link--active">Expériences</a></li>
-          <li class="nav__item"><a href="about.html"       class="nav__link">Présentation</a></li>
-          <li class="nav__item"><a href="veille.html"      class="nav__link">Veille</a></li>
-          <li class="nav__item"><a href="stages.html"      class="nav__link">Stages</a></li>
-          <li class="nav__item"><a href="competences.html" class="nav__link">Compétences</a></li>
-          <li class="nav__item"><a href="contact.html"     class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main role="main">
-
-    <!-- ***** Expériences ***** -->
-    <section class="client" id="clients">
-      <div class="row">
-        <h2>Mes Expériences Professionnelles</h2>
-        <p class="client__intro">Découvrez les entreprises et projets avec lesquels j'ai eu l'opportunité de travailler</p>
-
-        <div class="client__grid">
-
-          <div class="client__card">
-            <div class="client__num">01 — Stage 2024</div>
-            <div class="client__info">
-              <h3>[Nom Entreprise 1]</h3>
-              <p class="client__role">Stagiaire – Technicien Réseaux &amp; Systèmes</p>
-              <p class="client__description">
-                Configuration switches Cisco (VLANs, STP), administration Active Directory et GPO,
-                support N1/N2 via GLPI, déploiement pfSense en production. Documentation de l'infrastructure réseau.
-              </p>
-              <div class="client__tags">
-                <span class="client__tag">Cisco</span>
-                <span class="client__tag">Active Directory</span>
-                <span class="client__tag">pfSense</span>
-                <span class="client__tag">GLPI</span>
-                <span class="client__tag">Windows Server</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="client__card">
-            <div class="client__num">02 — Stage 2023</div>
-            <div class="client__info">
-              <h3>[Nom Entreprise 2]</h3>
-              <p class="client__role">Stagiaire – Administrateur Systèmes Linux</p>
-              <p class="client__description">
-                Maintenance serveurs Debian et Ubuntu, scripts Bash pour l'automatisation des sauvegardes,
-                mise en place de la supervision Zabbix (30+ équipements), configuration Apache et Nginx.
-              </p>
-              <div class="client__tags">
-                <span class="client__tag">Linux</span>
-                <span class="client__tag">Bash</span>
-                <span class="client__tag">Zabbix</span>
-                <span class="client__tag">Apache</span>
-                <span class="client__tag">Nginx</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="client__card">
-            <div class="client__num">03 — Projet BTS 2024</div>
-            <div class="client__info">
-              <h3>Infrastructure Réseau d'Entreprise</h3>
-              <p class="client__role">Projet académique — GNS3</p>
-              <p class="client__description">
-                Conception et déploiement d'une architecture réseau complète pour une PME fictive.
-                Segmentation VLAN, routage OSPF, DMZ et règles de sécurité périmétrique.
-              </p>
-              <div class="client__tags">
-                <span class="client__tag">Cisco</span>
-                <span class="client__tag">VLAN</span>
-                <span class="client__tag">OSPF</span>
-                <span class="client__tag">GNS3</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="client__card">
-            <div class="client__num">04 — Projet Perso 2024</div>
-            <div class="client__info">
-              <h3>Home Lab Cybersécurité</h3>
-              <p class="client__role">Projet personnel — Proxmox</p>
-              <p class="client__description">
-                Environnement virtualisé sous Proxmox pour pratiquer la cybersécurité offensive et défensive.
-                VMs Kali, Metasploitable, pratique Metasploit, Nmap, Burp Suite, Wireshark. Challenges CTF.
-              </p>
-              <div class="client__tags">
-                <span class="client__tag">Proxmox</span>
-                <span class="client__tag">Kali Linux</span>
-                <span class="client__tag">Metasploit</span>
-                <span class="client__tag">Wireshark</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/[votre-github]" target="_blank" title="GitHub">
-            <img src="./images/github.svg" class="footer__social-image" alt="GitHub">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" title="LinkedIn">
-            <img src="./images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
-          </a>
-        </li>
+  <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Nisa <span>Ozerdem.</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html"       class="nav__link">Accueil</a></li>
+        <li><a href="cv.html"          class="nav__link">CV</a></li>
+        <li><a href="experiences.html" class="nav__link">Expériences</a></li>
+        <li><a href="about.html"       class="nav__link">Présentation</a></li>
+        <li><a href="veille.html"      class="nav__link">Veille</a></li>
+        <li><a href="stages.html"      class="nav__link">Stages</a></li>
+        <li><a href="competences.html" class="nav__link">Compétences</a></li>
+        <li><a href="contact.html"     class="nav__link">Contact</a></li>
       </ul>
-      <p>&copy; 2026 - Portfolio créé par <a href="index.html" class="link">Nisa Ozerdem</a></p>
+    </div>
+  </nav>
+<main>
+  <section class="section" id="top">
+    <div class="container">
+      <p class="section-label">Parcours</p>
+      <h1 class="section-title fade-up" style="margin-bottom:5rem;">Expériences professionnelles</h1>
+
+      <div class="exp-grid">
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">01 — Stage 2024</div>
+          <div class="exp-card__company">[Nom Entreprise 1]</div>
+          <div class="exp-card__role">Stagiaire — Technicien Réseaux & Systèmes</div>
+          <p class="exp-card__desc">Configuration switches Cisco (VLANs, STP), administration Active Directory et GPO, support N1/N2 via GLPI, déploiement pfSense en production. Documentation de l'infrastructure réseau.</p>
+          <div class="tag-row">
+            <span class="tag">Cisco</span><span class="tag">Active Directory</span><span class="tag">pfSense</span><span class="tag">GLPI</span><span class="tag">Windows Server</span>
+          </div>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">02 — Stage 2023</div>
+          <div class="exp-card__company">[Nom Entreprise 2]</div>
+          <div class="exp-card__role">Stagiaire — Administrateur Systèmes Linux</div>
+          <p class="exp-card__desc">Maintenance serveurs Debian et Ubuntu, scripts Bash pour l'automatisation des sauvegardes, mise en place de la supervision Zabbix (30+ équipements), configuration Apache et Nginx.</p>
+          <div class="tag-row">
+            <span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">Zabbix</span><span class="tag">Apache</span><span class="tag">Nginx</span>
+          </div>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">03 — Projet BTS 2024</div>
+          <div class="exp-card__company">Infrastructure Réseau</div>
+          <div class="exp-card__role">Projet académique — GNS3</div>
+          <p class="exp-card__desc">Conception et déploiement d'une architecture réseau complète pour une PME fictive. Segmentation VLAN, routage OSPF, DMZ et règles de sécurité périmétrique.</p>
+          <div class="tag-row">
+            <span class="tag">GNS3</span><span class="tag">Cisco</span><span class="tag">VLAN</span><span class="tag">OSPF</span>
+          </div>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">04 — Projet perso 2024</div>
+          <div class="exp-card__company">Home Lab Cybersécurité</div>
+          <div class="exp-card__role">Lab personnel — Proxmox</div>
+          <p class="exp-card__desc">Environnement virtualisé sous Proxmox : VMs Kali, Metasploitable, pratique Metasploit, Nmap, Burp Suite, Wireshark. Challenges CTF (Hack The Box, TryHackMe).</p>
+          <div class="tag-row">
+            <span class="tag">Proxmox</span><span class="tag">Kali Linux</span><span class="tag">Metasploit</span><span class="tag">Wireshark</span><span class="tag">CTF</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <span class="footer__logo">Nisa <span>Ozerdem.</span></span>
+      <ul class="footer__links">
+        <li><a href="https://github.com/[votre-github]" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nisa-ozerdem" target="_blank">LinkedIn</a></li>
+      </ul>
+      <p class="footer__copy">&copy; 2026 Nisa Ozerdem</p>
     </div>
   </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top" aria-label="Retour en haut">↑</a>
+  <button class="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <script src="./index.js"></script>
 </body>
 </html>

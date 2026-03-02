@@ -4,97 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
-  <title>Présentation - Nisa Ozerdem | BTS SIO SISR | Rennes</title>
-  <meta name="description" content="Présentation de Nisa Ozerdem, étudiante en BTS SIO SISR passionnée par l'administration systèmes, réseaux et cybersécurité.">
+  <title>Présentation — Nisa Ozerdem</title>
+  <meta name="description" content="Présentation de Nisa Ozerdem, étudiante BTS SIO SISR à Rennes.">
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-
-  <header role="banner">
-    <div class="row">
-      <nav class="nav" role="navigation" aria-label="Navigation principale">
-        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav__items" id="nav-menu">
-          <li class="nav__item"><a href="index.html"       class="nav__link">Accueil</a></li>
-          <li class="nav__item"><a href="cv.html"          class="nav__link">CV</a></li>
-          <li class="nav__item"><a href="experiences.html" class="nav__link">Expériences</a></li>
-          <li class="nav__item"><a href="about.html"       class="nav__link nav__link--active">Présentation</a></li>
-          <li class="nav__item"><a href="veille.html"      class="nav__link">Veille</a></li>
-          <li class="nav__item"><a href="stages.html"      class="nav__link">Stages</a></li>
-          <li class="nav__item"><a href="competences.html" class="nav__link">Compétences</a></li>
-          <li class="nav__item"><a href="contact.html"     class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
+  <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Nisa <span>Ozerdem.</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html"       class="nav__link">Accueil</a></li>
+        <li><a href="cv.html"          class="nav__link">CV</a></li>
+        <li><a href="experiences.html" class="nav__link">Expériences</a></li>
+        <li><a href="about.html"       class="nav__link">Présentation</a></li>
+        <li><a href="veille.html"      class="nav__link">Veille</a></li>
+        <li><a href="stages.html"      class="nav__link">Stages</a></li>
+        <li><a href="competences.html" class="nav__link">Compétences</a></li>
+        <li><a href="contact.html"     class="nav__link">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
+<main>
+  <section class="section" id="top">
+    <div class="container">
+      <p class="section-label">À propos</p>
+      <h1 class="section-title fade-up" style="margin-bottom:5rem;">Présentation</h1>
 
-  <main role="main">
+      <div class="about-layout">
+        <div class="about-photo fade-up">
+          <!-- Si vous avez une photo : <img src="./images/nisa-photo.jpg" alt="Nisa Ozerdem"> -->
+          <div class="about-photo__initials">N.O.</div>
+          <span class="about-photo__label">nisa_ozerdem.jpg</span>
+        </div>
 
-    <!-- ***** Présentation ***** -->
-    <section class="about" id="about">
-      <div class="row">
-        <h2>Présentation</h2>
-        <div class="about__content">
-
-          <div class="about__text">
-            <p>
-              <!-- À compléter : votre présentation personnelle -->
-              Étudiante en <strong>BTS SIO option SISR</strong> à Rennes, je me spécialise dans
-              l'administration des systèmes, des réseaux et la cybersécurité.
-            </p>
-            <p>
-              <!-- À compléter : votre parcours, motivations -->
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-              <!-- À compléter : vos objectifs professionnels -->
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Disponible pour un
-              <strong>stage ou une alternance</strong> en administration systèmes et réseaux.
-            </p>
-
-            <div class="about__links">
-              <a href="cv.html"      class="btn btn--primary">Voir mon CV</a>
-              <a href="contact.html" class="btn btn--ghost">Me contacter</a>
-            </div>
+        <div>
+          <p style="font-size:1.85rem;line-height:1.8;color:var(--ink-muted);margin-bottom:2.5rem;" class="fade-up">
+            Étudiante en <strong style="color:var(--ink);">BTS SIO option SISR</strong> à Rennes, je me spécialise dans l'administration des systèmes, des réseaux et la cybersécurité. <!-- À compléter -->
+          </p>
+          <p style="font-size:1.75rem;line-height:1.8;color:var(--ink-muted);margin-bottom:2.5rem;" class="fade-up">
+            <!-- À compléter : votre parcours, vos motivations, ce qui vous a amené(e) à l'informatique... -->
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+          </p>
+          <div style="display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:4.5rem;" class="fade-up">
+            <a href="cv.html"      class="btn btn--primary">Voir mon CV</a>
+            <a href="contact.html" class="btn btn--outline">Me contacter</a>
           </div>
 
-          <div class="about__photo-container">
-            <!-- Si vous avez une photo : <img src="./images/nisa-photo.jpg" alt="Nisa Ozerdem" /> -->
-            <div class="about__avatar">
-              <div class="about__avatar-initials">NO</div>
-              <div class="about__avatar-label">Nisa Ozerdem</div>
+          <hr class="rule">
+
+          <div class="about-info fade-up">
+            <div class="about-detail">
+              <span class="about-detail__key">formation</span>
+              <span class="about-detail__val">BTS SIO SISR — Rennes</span>
+            </div>
+            <div class="about-detail">
+              <span class="about-detail__key">localisation</span>
+              <span class="about-detail__val">Rennes, Bretagne</span>
+            </div>
+            <div class="about-detail">
+              <span class="about-detail__key">langues</span>
+              <span class="about-detail__val">Français, Anglais</span>
+            </div>
+            <div class="about-detail">
+              <span class="about-detail__key">statut</span>
+              <span class="about-detail__val">Disponible — stage / alternance</span>
+            </div>
+            <div class="about-detail">
+              <span class="about-detail__key">contact</span>
+              <span class="about-detail__val"><a href="contact.html" style="color:var(--cobalt);">[votre-email@exemple.fr]</a></span>
             </div>
           </div>
-
         </div>
       </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/[votre-github]" target="_blank" title="GitHub">
-            <img src="./images/github.svg" class="footer__social-image" alt="GitHub">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" title="LinkedIn">
-            <img src="./images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
-          </a>
-        </li>
+    </div>
+  </section>
+</main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <span class="footer__logo">Nisa <span>Ozerdem.</span></span>
+      <ul class="footer__links">
+        <li><a href="https://github.com/[votre-github]" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nisa-ozerdem" target="_blank">LinkedIn</a></li>
       </ul>
-      <p>&copy; 2026 - Portfolio créé par <a href="index.html" class="link">Nisa Ozerdem</a></p>
+      <p class="footer__copy">&copy; 2026 Nisa Ozerdem</p>
     </div>
   </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top" aria-label="Retour en haut">↑</a>
+  <button class="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <script src="./index.js"></script>
 </body>
 </html>

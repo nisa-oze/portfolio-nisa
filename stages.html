@@ -4,164 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
-  <title>Stages - Nisa Ozerdem | BTS SIO SISR</title>
-  <meta name="description" content="Découvrez les stages de Nisa Ozerdem en administration systèmes et réseaux dans le cadre du BTS SIO SISR.">
+  <title>Stages — Nisa Ozerdem</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-
-  <header role="banner">
-    <div class="row">
-      <nav class="nav" role="navigation" aria-label="Navigation principale">
-        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav__items" id="nav-menu">
-          <li class="nav__item"><a href="index.html"       class="nav__link">Accueil</a></li>
-          <li class="nav__item"><a href="cv.html"          class="nav__link">CV</a></li>
-          <li class="nav__item"><a href="experiences.html" class="nav__link">Expériences</a></li>
-          <li class="nav__item"><a href="about.html"       class="nav__link">Présentation</a></li>
-          <li class="nav__item"><a href="veille.html"      class="nav__link">Veille</a></li>
-          <li class="nav__item"><a href="stages.html"      class="nav__link nav__link--active">Stages</a></li>
-          <li class="nav__item"><a href="competences.html" class="nav__link">Compétences</a></li>
-          <li class="nav__item"><a href="contact.html"     class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main role="main">
-
-    <!-- ***** Stages ***** -->
-    <section class="about" id="stages">
-      <div class="row">
-        <h2>Mes Stages</h2>
-        <div class="about__content">
-          <div class="about__text">
-
-            <h3>Stage 2 — [Nom Entreprise] · 2024</h3>
-            <p>
-              <!-- À compléter : présentation de l'entreprise -->
-              J'ai effectué mon deuxième stage de BTS SIO au sein du service informatique de
-              <strong>[Nom Entreprise]</strong> à Rennes. <!-- Lorem ipsum dolor sit amet... -->
-            </p>
-
-            <h3>Infrastructure informatique</h3>
-            <p><!-- À compléter : description de l'infrastructure --></p>
-
-            <h3>Missions effectuées</h3>
-            <p>Au cours de ce stage, j'ai participé activement aux activités du service informatique :</p>
-            <ul class="work__list">
-              <li><strong>Configuration réseau :</strong> Switches Cisco (VLANs, STP, EtherChannel), routage inter-VLAN</li>
-              <li><strong>Active Directory :</strong> Gestion des comptes utilisateurs, GPO, OU, politiques de sécurité</li>
-              <li><strong>Support N1/N2 :</strong> Prise en charge des incidents via GLPI, diagnostic et résolution</li>
-              <li><strong>Sécurité :</strong> Déploiement et configuration pfSense en production (firewall, VPN, NAT)</li>
-              <li><strong>Documentation :</strong> Rédaction et mise à jour des procédures techniques</li>
-            </ul>
-
-            <h3>Compétences développées</h3>
-            <p>
-              Ces expériences m'ont permis de développer des compétences solides en administration
-              systèmes et réseaux, en support utilisateur, ainsi qu'une meilleure compréhension
-              des enjeux informatiques en environnement professionnel.
-            </p>
-
-          </div>
-        </div>
-
-        <!-- Carte CRA Stage 2 — même structure veille-card que Nollan -->
-        <div class="veille-card" style="margin-top: 6rem;">
-          <div class="veille-card__icon">📋</div>
-          <div class="veille-card__content">
-            <h3>Compte Rendu d'Activité — Stage 2</h3>
-            <p>
-              Consultez mon compte rendu détaillé de stage : missions réalisées, compétences BTS
-              mises en œuvre, environnement technique et bilan professionnel.
-            </p>
-            <div class="veille-card__meta">
-              <span class="veille-meta__tag">Cisco · pfSense</span>
-              <span class="veille-meta__tag">Active Directory</span>
-              <span class="veille-meta__tag">GLPI</span>
-              <span class="veille-meta__tag">8 semaines</span>
-            </div>
-            <div class="veille-card__actions">
-              <a href="./images/cra_stage2.pdf" target="_blank" class="veille-btn veille-btn--view">📖 Consulter le CRA</a>
-              <a href="./images/cra_stage2.pdf" download        class="veille-btn veille-btn--download">⬇ Télécharger PDF</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Séparateur visuel -->
-        <div style="height: 4rem; border-bottom: var(--border-light); margin: 2rem 0 6rem;"></div>
-
-        <div class="about__content">
-          <div class="about__text">
-
-            <h3>Stage 1 — [Nom Entreprise] · 2023</h3>
-            <p>
-              <!-- À compléter : présentation de l'entreprise du premier stage -->
-              Premier stage de BTS SIO chez <strong>[Nom Entreprise]</strong> à Rennes.
-              <!-- Lorem ipsum dolor sit amet... -->
-            </p>
-
-            <h3>Missions effectuées</h3>
-            <ul class="work__list">
-              <li><strong>Administration Linux :</strong> Maintenance serveurs Debian et Ubuntu (patches, services systemd)</li>
-              <li><strong>Automatisation :</strong> Scripts Bash pour les sauvegardes automatisées et rapports système</li>
-              <li><strong>Supervision :</strong> Mise en place Zabbix — monitoring de 30+ équipements, alerting</li>
-              <li><strong>Web :</strong> Configuration Apache et Nginx, gestion des certificats SSL</li>
-              <li><strong>Incidents :</strong> Diagnostic et résolution d'incidents réseau et système</li>
-            </ul>
-
-          </div>
-        </div>
-
-        <!-- Carte CRA Stage 1 -->
-        <div class="veille-card" style="margin-top: 6rem;">
-          <div class="veille-card__icon">📋</div>
-          <div class="veille-card__content">
-            <h3>Compte Rendu d'Activité — Stage 1</h3>
-            <p>
-              Consultez mon compte rendu détaillé du premier stage :
-              missions réalisées, compétences BTS mises en œuvre et bilan professionnel.
-            </p>
-            <div class="veille-card__meta">
-              <span class="veille-meta__tag">Linux · Bash</span>
-              <span class="veille-meta__tag">Zabbix</span>
-              <span class="veille-meta__tag">Apache · Nginx</span>
-              <span class="veille-meta__tag">6 semaines</span>
-            </div>
-            <div class="veille-card__actions">
-              <a href="./images/cra_stage1.pdf" target="_blank" class="veille-btn veille-btn--view">📖 Consulter le CRA</a>
-              <a href="./images/cra_stage1.pdf" download        class="veille-btn veille-btn--download">⬇ Télécharger PDF</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/[votre-github]" target="_blank" title="GitHub">
-            <img src="./images/github.svg" class="footer__social-image" alt="GitHub">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" title="LinkedIn">
-            <img src="./images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
-          </a>
-        </li>
+  <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Nisa <span>Ozerdem.</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html"       class="nav__link">Accueil</a></li>
+        <li><a href="cv.html"          class="nav__link">CV</a></li>
+        <li><a href="experiences.html" class="nav__link">Expériences</a></li>
+        <li><a href="about.html"       class="nav__link">Présentation</a></li>
+        <li><a href="veille.html"      class="nav__link">Veille</a></li>
+        <li><a href="stages.html"      class="nav__link">Stages</a></li>
+        <li><a href="competences.html" class="nav__link">Compétences</a></li>
+        <li><a href="contact.html"     class="nav__link">Contact</a></li>
       </ul>
-      <p>&copy; 2026 - Portfolio créé par <a href="index.html" class="link">Nisa Ozerdem</a></p>
+    </div>
+  </nav>
+<main>
+  <section class="section" id="top">
+    <div class="container">
+      <p class="section-label">Immersions professionnelles</p>
+      <h1 class="section-title fade-up" style="margin-bottom:5rem;">Mes Stages</h1>
+
+      <!-- STAGE 2 -->
+      <div class="stage-block fade-up">
+        <div class="stage-block__header">
+          <div class="stage-block__co">[Nom Entreprise 1]</div>
+          <div class="stage-block__meta">
+            <span class="badge badge--blue">Stage 2</span>
+            <span class="badge">2024</span>
+            <span class="badge">8 semaines</span>
+            <span class="badge">Rennes</span>
+          </div>
+        </div>
+        <div class="stage-block__body">
+          <p style="color:var(--ink-muted);font-size:1.65rem;line-height:1.75;">
+            <!-- À compléter : description de l'entreprise et de l'environnement -->
+            J'ai effectué mon deuxième stage au sein du service informatique de <strong>[Nom Entreprise]</strong>. L'infrastructure comportait environ 200 postes utilisateurs, plusieurs serveurs Windows Server 2019 et un réseau Cisco segmenté en VLANs métier.
+          </p>
+          <ul class="stage-block__list">
+            <li><strong>Réseau :</strong> Configuration switches Cisco — VLANs, STP, EtherChannel, routage inter-VLAN</li>
+            <li><strong>Active Directory :</strong> Gestion des comptes utilisateurs, GPO, OU, politiques de sécurité</li>
+            <li><strong>Support N1/N2 :</strong> Prise en charge des incidents via GLPI, diagnostic et résolution</li>
+            <li><strong>Sécurité :</strong> Déploiement et configuration pfSense (firewall, VPN IPsec, NAT) en production</li>
+            <li><strong>Documentation :</strong> Rédaction et mise à jour des schémas réseau et procédures techniques</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Cisco</span><span class="tag">Active Directory</span><span class="tag">pfSense</span><span class="tag">GLPI</span><span class="tag">Windows Server</span>
+          </div>
+          <div class="stage-block__actions">
+            <a href="./images/cra_stage2.pdf" target="_blank" class="btn btn--primary btn--sm">📖 Consulter le CRA</a>
+            <a href="./images/cra_stage2.pdf" download       class="btn btn--ghost btn--sm">⬇ Télécharger PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 1 -->
+      <div class="stage-block fade-up">
+        <div class="stage-block__header">
+          <div class="stage-block__co">[Nom Entreprise 2]</div>
+          <div class="stage-block__meta">
+            <span class="badge badge--blue">Stage 1</span>
+            <span class="badge">2023</span>
+            <span class="badge">6 semaines</span>
+            <span class="badge">Rennes</span>
+          </div>
+        </div>
+        <div class="stage-block__body">
+          <p style="color:var(--ink-muted);font-size:1.65rem;line-height:1.75;">
+            <!-- À compléter -->
+            Premier stage en milieu professionnel chez <strong>[Nom Entreprise]</strong>. Environnement principalement Linux avec une infrastructure de serveurs Debian et Ubuntu sous supervision Zabbix.
+          </p>
+          <ul class="stage-block__list">
+            <li><strong>Administration Linux :</strong> Maintenance serveurs Debian et Ubuntu (patches, gestion services systemd)</li>
+            <li><strong>Automatisation :</strong> Scripts Bash pour les sauvegardes automatisées et rapports système</li>
+            <li><strong>Supervision :</strong> Mise en place Zabbix — monitoring de 30+ équipements, configuration alerting</li>
+            <li><strong>Web :</strong> Configuration Apache et Nginx, gestion des certificats SSL/TLS</li>
+            <li><strong>Incidents :</strong> Diagnostic et résolution d'incidents réseau et système</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">Zabbix</span><span class="tag">Apache</span><span class="tag">Nginx</span>
+          </div>
+          <div class="stage-block__actions">
+            <a href="./images/cra_stage1.pdf" target="_blank" class="btn btn--primary btn--sm">📖 Consulter le CRA</a>
+            <a href="./images/cra_stage1.pdf" download       class="btn btn--ghost btn--sm">⬇ Télécharger PDF</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <span class="footer__logo">Nisa <span>Ozerdem.</span></span>
+      <ul class="footer__links">
+        <li><a href="https://github.com/[votre-github]" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nisa-ozerdem" target="_blank">LinkedIn</a></li>
+      </ul>
+      <p class="footer__copy">&copy; 2026 Nisa Ozerdem</p>
     </div>
   </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top" aria-label="Retour en haut">↑</a>
+  <button class="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <script src="./index.js"></script>
 </body>
 </html>

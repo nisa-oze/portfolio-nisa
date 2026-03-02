@@ -4,119 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
-  <title>Nisa Ozerdem | IT Student | Administration Systèmes & Réseaux | Rennes, France.</title>
-  <meta name="description" content="Portfolio de Nisa Ozerdem, étudiante en BTS SIO SISR spécialisée en administration systèmes, réseaux et cybersécurité à Rennes.">
-  <meta name="keywords" content="Nisa Ozerdem, BTS SIO, SISR, Administration Systèmes, Réseaux, Cybersécurité, Rennes" />
+  <title>Nisa Ozerdem — Administration Systèmes & Réseaux · Rennes</title>
+  <meta name="description" content="Portfolio de Nisa Ozerdem, étudiante BTS SIO SISR spécialisée en administration systèmes, réseaux et cybersécurité à Rennes.">
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
-  <!-- ***** Header ***** -->
-  <header class="header header--no-bg" role="banner" id="top">
-    <div class="row">
-      <nav class="nav" role="navigation" aria-label="Navigation principale">
-        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav__items" id="nav-menu">
-          <li class="nav__item"><a href="index.html"       class="nav__link nav__link--active">Accueil</a></li>
-          <li class="nav__item"><a href="cv.html"          class="nav__link">CV</a></li>
-          <li class="nav__item"><a href="experiences.html" class="nav__link">Expériences</a></li>
-          <li class="nav__item"><a href="about.html"       class="nav__link">Présentation</a></li>
-          <li class="nav__item"><a href="veille.html"      class="nav__link">Veille</a></li>
-          <li class="nav__item"><a href="stages.html"      class="nav__link">Stages</a></li>
-          <li class="nav__item"><a href="competences.html" class="nav__link">Compétences</a></li>
-          <li class="nav__item"><a href="contact.html"     class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="header__hero">
-      <div class="row">
-        <div class="hero__card">
-          <div class="hero__kicker">Administration • Réseaux • Cybersécurité</div>
-          <h1 class="heading-primary">Nisa Ozerdem</h1>
-          <p class="hero__subtitle">IT Student | Administration Systèmes &amp; Réseaux | Rennes, France.</p>
-          <div class="hero__actions">
-            <a href="contact.html" class="btn btn--primary">Me Contacter</a>
-            <a href="cv.html"      class="btn btn--ghost">Voir mon CV</a>
-          </div>
-          <div class="hero__meta">
-            <span class="hero__pill">Rennes</span>
-            <span class="hero__pill">BTS SIO SISR</span>
-            <span class="hero__pill">Disponible</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <a class="scroll-indicator" href="#welcome" aria-label="Aller à la section suivante"></a>
-  </header>
-
-  <main role="main">
-
-    <!-- ***** Welcome ***** -->
-    <section class="welcome" id="welcome">
-      <div class="row">
-        <div class="welcome__content">
-
-          <div class="welcome__animation">
-            <div class="terminal">
-              <div class="terminal__header">
-                <span class="terminal__dot terminal__dot--red"></span>
-                <span class="terminal__dot terminal__dot--yellow"></span>
-                <span class="terminal__dot terminal__dot--green"></span>
-              </div>
-              <div class="terminal__body">
-                <p class="terminal__line">$ nisa@rennes:~$ whoami</p>
-                <p class="terminal__line terminal__output">Nisa Ozerdem — BTS SIO SISR</p>
-                <p class="terminal__line">$ nisa@rennes:~$ ls skills/</p>
-                <p class="terminal__line terminal__output">Systèmes  Réseaux  Cybersécurité  Support-IT</p>
-                <p class="terminal__line">$ nisa@rennes:~$ cat passion.txt</p>
-                <p class="terminal__line terminal__output">Administration | Linux | pfSense | CTF</p>
-                <p class="terminal__line terminal__cursor">█</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="welcome__text">
-            <h2>Bienvenue sur mon Portfolio !</h2>
-            <p>Découvrez mon parcours, mes compétences et mes projets en administration systèmes et réseaux.
-               Passionnée par la cybersécurité et les infrastructures IT, je suis actuellement en recherche
-               d'opportunités pour mettre mes compétences au service de votre entreprise.</p>
-            <div class="welcome__links">
-              <a href="cv.html"    class="btn btn--primary">Voir mon CV</a>
-              <a href="about.html" class="btn btn--ghost">Me découvrir</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ***** Footer ***** -->
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/[votre-github]" target="_blank" title="GitHub">
-            <img src="./images/github.svg" class="footer__social-image" alt="GitHub">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" title="LinkedIn">
-            <img src="./images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
-          </a>
-        </li>
+  <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Nisa <span>Ozerdem.</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html"       class="nav__link">Accueil</a></li>
+        <li><a href="cv.html"          class="nav__link">CV</a></li>
+        <li><a href="experiences.html" class="nav__link">Expériences</a></li>
+        <li><a href="about.html"       class="nav__link">Présentation</a></li>
+        <li><a href="veille.html"      class="nav__link">Veille</a></li>
+        <li><a href="stages.html"      class="nav__link">Stages</a></li>
+        <li><a href="competences.html" class="nav__link">Compétences</a></li>
+        <li><a href="contact.html"     class="nav__link">Contact</a></li>
       </ul>
-      <p>&copy; 2026 - Portfolio créé par <a href="index.html" class="link">Nisa Ozerdem</a></p>
+    </div>
+  </nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__left">
+      <p class="hero__eyebrow">Portfolio · BTS SIO SISR</p>
+      <h1 class="hero__name">Nisa<br><em>Ozerdem</em></h1>
+      <p class="hero__title">Étudiante en administration des systèmes, réseaux et cybersécurité. Disponible pour un stage ou une alternance à Rennes.</p>
+      <div class="hero__actions">
+        <a href="contact.html"     class="btn btn--primary">Me contacter</a>
+        <a href="cv.html"          class="btn btn--outline">Voir mon CV</a>
+        <a href="experiences.html" class="btn btn--ghost">Expériences</a>
+      </div>
+      <div class="hero__chips">
+        <span class="chip">Rennes, France</span>
+        <span class="chip">BTS SIO SISR</span>
+        <span class="chip">Disponible</span>
+      </div>
+    </div>
+
+    <div class="hero__right">
+      <div class="hero__deco-block"></div>
+      <div class="hero__rule"></div>
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-num">2<span>ans</span></div>
+          <div class="hero__stat-label">Formation</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">2<span>×</span></div>
+          <div class="hero__stat-label">Stages</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">10<span>+</span></div>
+          <div class="hero__stat-label">Technologies</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">∞</div>
+          <div class="hero__stat-label">Curiosité</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPÉRIENCES RAPIDES -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <div class="section__header-text">
+          <p class="section-label">Expériences</p>
+          <h2 class="section-title fade-up">Ce que j'ai fait</h2>
+        </div>
+        <a href="experiences.html" class="btn btn--outline btn--sm">Tout voir →</a>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">01 — Stage 2024</div>
+          <div class="exp-card__company">[Entreprise 1]</div>
+          <div class="exp-card__role">Technicien Réseaux & Systèmes</div>
+          <p class="exp-card__desc">Configuration Cisco, Active Directory, pfSense, support N1/N2 via GLPI.</p>
+          <div class="tag-row"><span class="tag">Cisco</span><span class="tag">AD</span><span class="tag">pfSense</span></div>
+        </div>
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">02 — Stage 2023</div>
+          <div class="exp-card__company">[Entreprise 2]</div>
+          <div class="exp-card__role">Administrateur Systèmes Linux</div>
+          <p class="exp-card__desc">Serveurs Debian/Ubuntu, scripts Bash, supervision Zabbix, Apache/Nginx.</p>
+          <div class="tag-row"><span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">Zabbix</span></div>
+        </div>
+        <div class="exp-card fade-up">
+          <div class="exp-card__num">03 — Projet perso</div>
+          <div class="exp-card__company">Home Lab</div>
+          <div class="exp-card__role">Cybersécurité — Proxmox</div>
+          <p class="exp-card__desc">Lab virtualisé : Kali, Metasploitable, CTF, pentest, Wireshark, Burp Suite.</p>
+          <div class="tag-row"><span class="tag">Proxmox</span><span class="tag">Kali</span><span class="tag">CTF</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <span class="footer__logo">Nisa <span>Ozerdem.</span></span>
+      <ul class="footer__links">
+        <li><a href="https://github.com/[votre-github]" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nisa-ozerdem" target="_blank">LinkedIn</a></li>
+      </ul>
+      <p class="footer__copy">&copy; 2026 Nisa Ozerdem</p>
     </div>
   </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top" aria-label="Retour en haut">↑</a>
-
+  <button class="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <script src="./index.js"></script>
+
 </body>
 </html>

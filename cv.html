@@ -4,84 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
-  <title>CV - Nisa Ozerdem | BTS SIO SISR | Administration Systèmes & Réseaux</title>
-  <meta name="description" content="Consultez le CV de Nisa Ozerdem, étudiante en BTS SIO SISR spécialisée en administration systèmes et réseaux.">
+  <title>CV — Nisa Ozerdem</title>
+  <meta name="description" content="CV de Nisa Ozerdem, étudiante BTS SIO SISR.">
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-
-  <header role="banner">
-    <div class="row">
-      <nav class="nav" role="navigation" aria-label="Navigation principale">
-        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav__items" id="nav-menu">
-          <li class="nav__item"><a href="index.html"       class="nav__link">Accueil</a></li>
-          <li class="nav__item"><a href="cv.html"          class="nav__link nav__link--active">CV</a></li>
-          <li class="nav__item"><a href="experiences.html" class="nav__link">Expériences</a></li>
-          <li class="nav__item"><a href="about.html"       class="nav__link">Présentation</a></li>
-          <li class="nav__item"><a href="veille.html"      class="nav__link">Veille</a></li>
-          <li class="nav__item"><a href="stages.html"      class="nav__link">Stages</a></li>
-          <li class="nav__item"><a href="competences.html" class="nav__link">Compétences</a></li>
-          <li class="nav__item"><a href="contact.html"     class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
+  <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav__logo">Nisa <span>Ozerdem.</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir / fermer le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html"       class="nav__link">Accueil</a></li>
+        <li><a href="cv.html"          class="nav__link">CV</a></li>
+        <li><a href="experiences.html" class="nav__link">Expériences</a></li>
+        <li><a href="about.html"       class="nav__link">Présentation</a></li>
+        <li><a href="veille.html"      class="nav__link">Veille</a></li>
+        <li><a href="stages.html"      class="nav__link">Stages</a></li>
+        <li><a href="competences.html" class="nav__link">Compétences</a></li>
+        <li><a href="contact.html"     class="nav__link">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
+<main>
+  <section class="section" id="top">
+    <div class="container">
+      <p class="section-label">Curriculum Vitae</p>
+      <h1 class="section-title fade-up" style="margin-bottom:4rem;">Mon CV</h1>
 
-  <main role="main">
-
-    <!-- ***** CV Section ***** -->
-    <section class="cv-section" id="cv">
-      <div class="row">
-        <h2>Mon CV</h2>
-
-        <div class="cv-container">
-          <div class="cv-viewer">
-
-            <!--
-              ════════════════════════════════════════════
-              OPTION A — Image PNG/JPG (comme Nollan)
-              ─────────────────────────────────────────────
-              1. Placez votre CV en image : images/nisa_cv.png
-              2. Supprimez le bloc .cv-placeholder ci-dessous
-              3. Décommentez le bloc "Option A"
-              ════════════════════════════════════════════ -->
+      <div class="cv-wrapper">
+        <div class="cv-frame fade-up">
+          <div class="cv-frame__bar"></div>
+          <div class="cv-frame__inner">
 
             <!--
-            <img src="./images/nisa_cv.png" alt="CV de Nisa Ozerdem" id="cv-image" class="cv-image">
-            <div class="cv-controls">
-              <button class="btn btn--ghost btn--sm" id="zoom-in"    type="button" aria-label="Zoom avant">🔍+</button>
-              <button class="btn btn--ghost btn--sm" id="zoom-out"   type="button" aria-label="Zoom arrière">🔍-</button>
-              <button class="btn btn--ghost btn--sm" id="reset-zoom" type="button" aria-label="Réinitialiser">↺</button>
-              <a href="./images/nisa_cv.png" download class="btn btn--primary btn--sm">⬇ Télécharger</a>
-            </div>
+              ═══════════════════════════════════════
+              OPTION A — Image (PNG ou JPG)
+              1. Placez : images/nisa_cv.png
+              2. Supprimez .cv-placeholder
+              3. Décommentez ce bloc
+              ═══════════════════════════════════════
+
+            <img src="./images/nisa_cv.png" alt="CV Nisa Ozerdem" id="cv-image" class="cv-img">
             -->
 
             <!--
-              ════════════════════════════════════════════
+              ═══════════════════════════════════════
               OPTION B — PDF embarqué
-              ─────────────────────────────────────────────
-              1. Placez votre CV : images/nisa_cv.pdf
-              2. Supprimez le bloc .cv-placeholder ci-dessous
-              3. Décommentez le bloc "Option B"
-              ════════════════════════════════════════════ -->
+              1. Placez : images/nisa_cv.pdf
+              2. Supprimez .cv-placeholder
+              3. Décommentez ce bloc
+              ═══════════════════════════════════════
 
-            <!--
-            <iframe class="pdf-embed" src="./images/nisa_cv.pdf#toolbar=0&view=FitH" title="CV Nisa Ozerdem"></iframe>
-            <div class="cv-controls">
-              <a href="./images/nisa_cv.pdf" download class="btn btn--primary btn--sm">⬇ Télécharger le CV</a>
-              <a href="./images/nisa_cv.pdf" target="_blank" class="btn btn--ghost btn--sm">↗ Ouvrir</a>
-            </div>
+            <iframe class="pdf-embed" src="./images/nisa_cv.pdf#toolbar=0" title="CV Nisa Ozerdem"></iframe>
             -->
 
-            <!-- Placeholder affiché tant que le fichier CV n'est pas ajouté -->
+            <!-- Placeholder — à remplacer par A ou B ci-dessus -->
             <div class="cv-placeholder">
-              <p>
-                Ajoutez votre CV ici.<br>
-                — Image : <code>images/nisa_cv.png</code> → décommentez <strong>Option A</strong><br>
-                — PDF   : <code>images/nisa_cv.pdf</code> → décommentez <strong>Option B</strong>
+              <p>Ajoutez votre CV ici :<br>
+                Image → <code>images/nisa_cv.png</code> (Option A)<br>
+                PDF   → <code>images/nisa_cv.pdf</code> (Option B)
               </p>
               <a href="./images/nisa_cv.pdf" download class="btn btn--primary btn--sm">⬇ Télécharger le CV</a>
             </div>
@@ -89,30 +72,31 @@
           </div>
         </div>
 
+        <div class="cv-controls fade-up">
+          <!--
+            Zoom — à décommenter si vous utilisez Option A (image)
+            <button class="btn btn--outline btn--sm" id="zoom-in">🔍 +</button>
+            <button class="btn btn--outline btn--sm" id="zoom-out">🔍 −</button>
+            <button class="btn btn--outline btn--sm" id="zoom-reset">↺ Reset</button>
+          -->
+          <a href="./images/nisa_cv.pdf" download class="btn btn--primary">⬇ Télécharger le CV</a>
+          <a href="./images/nisa_cv.pdf" target="_blank" class="btn btn--ghost">↗ Ouvrir dans un nouvel onglet</a>
+        </div>
       </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/[votre-github]" target="_blank" title="GitHub">
-            <img src="./images/github.svg" class="footer__social-image" alt="GitHub">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" title="LinkedIn">
-            <img src="./images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
-          </a>
-        </li>
+    </div>
+  </section>
+</main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <span class="footer__logo">Nisa <span>Ozerdem.</span></span>
+      <ul class="footer__links">
+        <li><a href="https://github.com/[votre-github]" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nisa-ozerdem" target="_blank">LinkedIn</a></li>
       </ul>
-      <p>&copy; 2026 - Portfolio créé par <a href="index.html" class="link">Nisa Ozerdem</a></p>
+      <p class="footer__copy">&copy; 2026 Nisa Ozerdem</p>
     </div>
   </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top" aria-label="Retour en haut">↑</a>
+  <button class="back-top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <script src="./index.js"></script>
 </body>
 </html>

@@ -1,84 +1,51 @@
-/* -----------------------------------------
-  Focus outline only for keyboard users
- ---------------------------------------- */
-const handleFirstTab = (e) => {
-  if (e.key === 'Tab') {
-    document.body.classList.add('user-is-tabbing');
-    window.removeEventListener('keydown', handleFirstTab);
-    window.addEventListener('mousedown', handleMouseDownOnce);
-  }
-};
-const handleMouseDownOnce = () => {
-  document.body.classList.remove('user-is-tabbing');
-  window.removeEventListener('mousedown', handleMouseDownOnce);
-  window.addEventListener('keydown', handleFirstTab);
-};
-window.addEventListener('keydown', handleFirstTab);
+/* ── Back to Top ── */
+const backTop = document.querySelector('.back-top');
+if (backTop) {
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('visible', window.scrollY > 600);
+  });
+}
 
-/* -----------------------------------------
-  Back to Top
- ---------------------------------------- */
-const backToTopButton = document.querySelector('.back-to-top');
-const setBackToTop = (visible) => {
-  if (!backToTopButton) return;
-  backToTopButton.style.visibility = visible ? 'visible' : 'hidden';
-  backToTopButton.style.opacity    = visible ? '1'       : '0';
-  backToTopButton.style.transform  = visible ? 'scale(1)' : 'scale(0)';
-};
-window.addEventListener('scroll', () => setBackToTop(window.scrollY > 700));
+/* ── Mobile Nav ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('nav-toggle');
+  const menu   = document.getElementById('nav-links');
+  if (!toggle || !menu) return;
 
-/* -----------------------------------------
-  DOMContentLoaded
- ---------------------------------------- */
-document.addEventListener('DOMContentLoaded', function () {
+  const close = () => { menu.classList.remove('open'); toggle.classList.remove('active'); toggle.setAttribute('aria-expanded','false'); };
+  const open  = () => { menu.classList.add('open');    toggle.classList.add('active');    toggle.setAttribute('aria-expanded','true');  };
 
-  /* ---- CV Zoom (comme Nollan) ---- */
-  const cvImage      = document.getElementById('cv-image');
-  const zoomInBtn    = document.getElementById('zoom-in');
-  const zoomOutBtn   = document.getElementById('zoom-out');
-  const resetZoomBtn = document.getElementById('reset-zoom');
+  toggle.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
+  document.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) close();
+  });
 
-  if (cvImage && zoomInBtn && zoomOutBtn && resetZoomBtn) {
+  /* ── Active link ── */
+  const page = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav__link').forEach(l => {
+    const href = l.getAttribute('href');
+    if (href === page || (page === '' && href === 'index.html')) l.classList.add('nav__link--active');
+  });
+
+  /* ── Fade-up observer ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  /* ── CV zoom ── */
+  const cvImg    = document.getElementById('cv-image');
+  const zoomIn   = document.getElementById('zoom-in');
+  const zoomOut  = document.getElementById('zoom-out');
+  const zoomRst  = document.getElementById('zoom-reset');
+  if (cvImg && zoomIn) {
     let scale = 1;
-    const scaleStep = 0.25;
-    const maxScale  = 3;
-    const minScale  = 1;
-
-    const applyScale = () => {
-      cvImage.style.transform = `scale(${scale})`;
-      cvImage.classList.toggle('zoomed', scale > 1);
-    };
-
-    zoomInBtn.addEventListener('click',    () => { scale = Math.min(maxScale, scale + scaleStep); applyScale(); });
-    zoomOutBtn.addEventListener('click',   () => { scale = Math.max(minScale, scale - scaleStep); applyScale(); });
-    resetZoomBtn.addEventListener('click', () => { scale = 1; applyScale(); });
-    cvImage.addEventListener('click',      () => { scale = (scale === 1) ? 2 : 1; applyScale(); });
+    const apply = () => { cvImg.style.transform = `scale(${scale})`; cvImg.classList.toggle('zoomed', scale > 1); };
+    zoomIn.addEventListener('click',  () => { scale = Math.min(3, scale + .25); apply(); });
+    zoomOut.addEventListener('click', () => { scale = Math.max(1, scale - .25); apply(); });
+    zoomRst.addEventListener('click', () => { scale = 1; apply(); });
+    cvImg.addEventListener('click',   () => { scale = scale > 1 ? 1 : 2; apply(); });
   }
-
-  /* ---- Mobile Menu Toggle ---- */
-  const navToggle = document.getElementById('nav-toggle');
-  const navMenu   = document.getElementById('nav-menu');
-  const navLinks  = document.querySelectorAll('.nav__link');
-
-  if (navToggle && navMenu) {
-    const closeMenu = () => {
-      navMenu.classList.remove('active');
-      navToggle.classList.remove('active');
-      navToggle.setAttribute('aria-expanded', 'false');
-    };
-    const openMenu = () => {
-      navMenu.classList.add('active');
-      navToggle.classList.add('active');
-      navToggle.setAttribute('aria-expanded', 'true');
-    };
-
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.addEventListener('click', () => navMenu.classList.contains('active') ? closeMenu() : openMenu());
-    navLinks.forEach(link => link.addEventListener('click', closeMenu));
-    document.addEventListener('click', e => {
-      if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) closeMenu();
-    });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-  }
-
 });
