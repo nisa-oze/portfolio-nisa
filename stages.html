@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stages | Nisa Ozerdem</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .stage-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .stage-card:hover { border-color: rgba(45,127,249,0.4); }
+
+    .stage-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 1.3rem 1.5rem;
+      align-items: start;
+    }
+
+    .stage-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+
+    .stage-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .stage-org { font-size: 0.78rem; color: var(--accent3); }
+
+    .stage-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+    }
+
+    .meta-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      border: 1px solid var(--border2);
+      padding: 0.15rem 0.5rem;
+    }
+
+    .meta-duration {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted2);
+    }
+
+    .stage-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .stage-section {
+      padding: 1.3rem 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .stage-section:last-child { border-right: none; }
+
+    .ss-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent3);
+      margin-bottom: 0.8rem;
+    }
+
+    .ss-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+    .ss-list li { font-size: 0.76rem; color: var(--muted2); display: flex; gap: 0.5rem; line-height: 1.5; }
+    .ss-list li::before { content: '›'; color: var(--accent); flex-shrink: 0; }
+
+    .stage-footer {
+      border-top: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .rapport-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted2);
+      border: 1px solid var(--border2);
+      padding: 0.3rem 0.8rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .rapport-btn:hover { color: var(--accent3); border-color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .stage-top { grid-template-columns: 1fr; }
+      .stage-meta { align-items: flex-start; margin-top: 0.5rem; }
+      .stage-body { grid-template-columns: 1fr; }
+      .stage-section { border-right: none; border-bottom: 1px solid var(--border); }
+      .stage-section:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="social-bar">
+    <a href="https://github.com/nisaozerdem" target="_blank" class="social-link">GH</a>
+    <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="social-link">LI</a>
+    <a href="mailto:nisa.ozerdem@email.com" class="social-link">@</a>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nisa <span class="accent">Ozerdem</span></a>
+    <div class="nav-center"><span>Administration</span><span class="sep">•</span><span>Réseaux</span><span class="sep">•</span><span>Cybersécurité</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">Présentation</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="stages.html">Stages</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li><a href="ctf.html">CTF</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="breadcrumb"><a href="index.html">~</a><span class="sep">/</span><span>stages</span></div>
+      <h1>Stages</h1>
+      <p class="page-sub">Mes périodes de formation en entreprise</p>
+    </div>
+
+    <div class="section reveal">
+      <div class="section-label">BTS SIO SISR</div>
+      <h2 class="section-title">Périodes en entreprise</h2>
+      <p class="section-desc">Détail de mes deux stages réalisés dans le cadre du BTS SIO.</p>
+
+      <!-- STAGE 1 -->
+      <div class="stage-card reveal">
+        <div class="stage-top">
+          <div>
+            <div class="stage-num">STAGE 02 / 2024</div>
+            <div class="stage-title">Technicien Réseaux &amp; Systèmes</div>
+            <div class="stage-org">Entreprise IT — Rennes, France</div>
+          </div>
+          <div class="stage-meta">
+            <span class="meta-date">Avr. — Juin 2024</span>
+            <span class="meta-duration">8 semaines</span>
+          </div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-section">
+            <div class="ss-title">Missions réalisées</div>
+            <ul class="ss-list">
+              <li>Configuration de switches Cisco (VLANs, STP, EtherChannel)</li>
+              <li>Administration Active Directory et gestion des GPO</li>
+              <li>Support N1/N2 via GLPI (gestion des incidents et demandes)</li>
+              <li>Mise à jour et patch management Windows Server 2019</li>
+              <li>Déploiement d'un nouveau pare-feu pfSense en production</li>
+              <li>Documentation de l'infrastructure réseau existante</li>
+            </ul>
+          </div>
+          <div class="stage-section">
+            <div class="ss-title">Compétences acquises</div>
+            <ul class="ss-list">
+              <li>Gestion d'infrastructure réseau en environnement professionnel</li>
+              <li>Relation et communication avec les utilisateurs finaux</li>
+              <li>Lecture et rédaction de documentation technique</li>
+              <li>Respect des procédures de changement (Change Management)</li>
+            </ul>
+            <div class="tags" style="margin-top:1rem">
+              <span class="tag blue">Cisco</span>
+              <span class="tag blue">Windows Server</span>
+              <span class="tag">Active Directory</span>
+              <span class="tag">pfSense</span>
+              <span class="tag">GLPI</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage-footer">
+          <div class="tags">
+            <span class="tag green">Validé</span>
+          </div>
+          <a href="#" class="rapport-btn">Rapport de stage &darr;</a>
+        </div>
+      </div>
+
+      <!-- STAGE 2 -->
+      <div class="stage-card reveal">
+        <div class="stage-top">
+          <div>
+            <div class="stage-num">STAGE 01 / 2023</div>
+            <div class="stage-title">Administrateur Systèmes Linux</div>
+            <div class="stage-org">Hébergeur / ESN — Rennes, France</div>
+          </div>
+          <div class="stage-meta">
+            <span class="meta-date">Avr. — Mai 2023</span>
+            <span class="meta-duration">6 semaines</span>
+          </div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-section">
+            <div class="ss-title">Missions réalisées</div>
+            <ul class="ss-list">
+              <li>Maintenance de serveurs Debian et Ubuntu (patches, mises à jour)</li>
+              <li>Écriture de scripts Bash pour automatiser les sauvegardes</li>
+              <li>Mise en place de la supervision Zabbix pour 30+ équipements</li>
+              <li>Configuration de services web Apache et Nginx</li>
+              <li>Monitoring des performances système (CPU, RAM, disque)</li>
+            </ul>
+          </div>
+          <div class="stage-section">
+            <div class="ss-title">Compétences acquises</div>
+            <ul class="ss-list">
+              <li>Administration Linux avancée en contexte de production</li>
+              <li>Automatisation et scripting professionnel</li>
+              <li>Mise en place et configuration d'outils de supervision</li>
+              <li>Gestion des logs et analyse des performances</li>
+            </ul>
+            <div class="tags" style="margin-top:1rem">
+              <span class="tag blue">Linux</span>
+              <span class="tag blue">Bash</span>
+              <span class="tag">Zabbix</span>
+              <span class="tag">Apache</span>
+              <span class="tag">Nginx</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage-footer">
+          <div class="tags">
+            <span class="tag green">Validé</span>
+          </div>
+          <a href="#" class="rapport-btn">Rapport de stage &darr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-copy">&copy; 2026 - Portfolio créé par <span>Nisa Ozerdem</span></span>
+    <a href="#" class="footer-back">Haut de page &uarr;</a>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>

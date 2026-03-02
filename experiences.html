@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expériences | Nisa Ozerdem</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .exp-item {
+      border: 1px solid var(--border);
+      margin-bottom: 1px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .exp-item:hover { border-color: var(--accent); }
+
+    .exp-header {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .exp-date {
+      padding: 1.1rem 1rem;
+      border-right: 1px solid var(--border);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+    }
+
+    .exp-info { padding: 1.1rem 1.2rem; }
+
+    .exp-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-org { font-size: 0.74rem; color: var(--accent3); }
+
+    .exp-type {
+      padding: 1.1rem 1rem;
+      border-left: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .type-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+
+    .badge-stage { color: var(--accent3); border-color: rgba(96,165,250,0.3); }
+    .badge-project { color: var(--green); border-color: rgba(34,197,94,0.3); }
+    .badge-perso { color: var(--yellow); border-color: rgba(245,158,11,0.3); }
+
+    .exp-body { padding: 1.2rem 1.2rem 1.2rem calc(110px + 1.2rem); background: var(--bg2); }
+
+    .exp-body p { font-size: 0.8rem; color: var(--muted2); line-height: 1.8; margin-bottom: 0.8rem; }
+    .exp-body ul { list-style: none; margin-bottom: 1rem; }
+    .exp-body ul li { font-size: 0.78rem; color: var(--muted2); padding: 0.2rem 0; display: flex; gap: 0.6rem; }
+    .exp-body ul li::before { content: '›'; color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .exp-header { grid-template-columns: 1fr; }
+      .exp-date, .exp-type { border: none; border-bottom: 1px solid var(--border); }
+      .exp-body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="social-bar">
+    <a href="https://github.com/nisaozerdem" target="_blank" class="social-link">GH</a>
+    <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="social-link">LI</a>
+    <a href="mailto:nisa.ozerdem@email.com" class="social-link">@</a>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nisa <span class="accent">Ozerdem</span></a>
+    <div class="nav-center"><span>Administration</span><span class="sep">•</span><span>Réseaux</span><span class="sep">•</span><span>Cybersécurité</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">Présentation</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="stages.html">Stages</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li><a href="ctf.html">CTF</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="breadcrumb"><a href="index.html">~</a><span class="sep">/</span><span>expériences</span></div>
+      <h1>Expériences</h1>
+      <p class="page-sub">Stages, projets et réalisations professionnelles</p>
+    </div>
+
+    <div class="section reveal">
+      <div class="section-label">Chronologie</div>
+      <h2 class="section-title">Parcours professionnel</h2>
+      <p class="section-desc">Toutes mes expériences en entreprise, projets académiques et personnels.</p>
+
+      <div class="exp-item reveal">
+        <div class="exp-header">
+          <div class="exp-date">2024</div>
+          <div class="exp-info">
+            <div class="exp-title">Stage — Technicien Réseaux &amp; Systèmes</div>
+            <div class="exp-org">Entreprise IT — Rennes</div>
+          </div>
+          <div class="exp-type"><span class="type-badge badge-stage">Stage</span></div>
+        </div>
+        <div class="exp-body">
+          <p>Administration de l'infrastructure réseau d'une PME de 80 collaborateurs. Prise en charge du support N1/N2 et participation aux projets d'évolution de l'infrastructure.</p>
+          <ul>
+            <li>Configuration et maintenance de switches Cisco (VLANs, STP, RSTP)</li>
+            <li>Administration Active Directory (comptes, GPO, OU)</li>
+            <li>Gestion des tickets via GLPI, résolution incidents N1/N2</li>
+            <li>Mise à jour et patch management des serveurs Windows Server 2019</li>
+            <li>Participation au déploiement d'un nouveau pare-feu pfSense</li>
+          </ul>
+          <div class="tags"><span class="tag blue">Cisco</span><span class="tag blue">Windows Server</span><span class="tag">Active Directory</span><span class="tag">pfSense</span><span class="tag">GLPI</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-header">
+          <div class="exp-date">2023</div>
+          <div class="exp-info">
+            <div class="exp-title">Stage — Administrateur Systèmes Linux</div>
+            <div class="exp-org">Entreprise IT — Rennes</div>
+          </div>
+          <div class="exp-type"><span class="type-badge badge-stage">Stage</span></div>
+        </div>
+        <div class="exp-body">
+          <p>Participation à la maintenance et l'évolution de l'infrastructure Linux d'un hébergeur local. Automatisation des tâches répétitives et mise en place de la supervision.</p>
+          <ul>
+            <li>Maintenance de serveurs Debian et Ubuntu (mises à jour, monitoring)</li>
+            <li>Scripting Bash pour automatisation des sauvegardes et rapports</li>
+            <li>Mise en place d'une supervision Zabbix pour 30+ équipements</li>
+            <li>Configuration de services web Apache / Nginx</li>
+          </ul>
+          <div class="tags"><span class="tag blue">Linux</span><span class="tag blue">Bash</span><span class="tag">Zabbix</span><span class="tag">Apache</span><span class="tag">Nginx</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-header">
+          <div class="exp-date">2024</div>
+          <div class="exp-info">
+            <div class="exp-title">Infrastructure réseau d'entreprise</div>
+            <div class="exp-org">Projet BTS — École</div>
+          </div>
+          <div class="exp-type"><span class="type-badge badge-project">Projet</span></div>
+        </div>
+        <div class="exp-body">
+          <p>Conception et déploiement d'une architecture réseau complète pour une PME fictive dans le cadre du BTS.</p>
+          <ul>
+            <li>Segmentation VLAN par département (10 VLANs)</li>
+            <li>Routage inter-VLAN avec OSPF sur routeurs Cisco</li>
+            <li>Mise en place d'une DMZ et règles de sécurité périmétrique</li>
+            <li>Documentation technique complète (schémas, adressage)</li>
+          </ul>
+          <div class="tags"><span class="tag blue">Cisco</span><span class="tag">VLAN</span><span class="tag">OSPF</span><span class="tag">Firewall</span><span class="tag">GNS3</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-header">
+          <div class="exp-date">2024</div>
+          <div class="exp-info">
+            <div class="exp-title">Home Lab Cybersécurité</div>
+            <div class="exp-org">Projet personnel</div>
+          </div>
+          <div class="exp-type"><span class="type-badge badge-perso">Perso</span></div>
+        </div>
+        <div class="exp-body">
+          <p>Construction d'un environnement de test virtualisé sous Proxmox pour pratiquer la cybersécurité offensive et défensive.</p>
+          <ul>
+            <li>Déploiement de VMs Kali Linux, Metasploitable, Windows vulnérables</li>
+            <li>Pratique des outils pentest : Metasploit, Nmap, Burp Suite</li>
+            <li>Analyse de trames réseau avec Wireshark</li>
+            <li>Participation à des CTF sur Hack The Box et TryHackMe</li>
+          </ul>
+          <div class="tags"><span class="tag blue">Proxmox</span><span class="tag">Kali Linux</span><span class="tag">Metasploit</span><span class="tag">Wireshark</span><span class="tag">CTF</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-copy">&copy; 2026 - Portfolio créé par <span>Nisa Ozerdem</span></span>
+    <a href="#" class="footer-back">Haut de page &uarr;</a>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>

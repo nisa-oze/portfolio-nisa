@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veille Technologique | Nisa Ozerdem</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .veille-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .veille-card {
+      background: var(--bg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .veille-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.35s; }
+    .veille-card:hover { background: var(--bg2); }
+    .veille-card:hover::before { width: 100%; }
+
+    .vc-cat {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border: 1px solid;
+      width: fit-content;
+    }
+
+    .cat-secu { color: var(--red); border-color: rgba(239,68,68,0.3); }
+    .cat-net  { color: var(--accent3); border-color: rgba(96,165,250,0.3); }
+    .cat-cloud { color: #bc8cff; border-color: rgba(188,140,255,0.3); }
+    .cat-sys { color: var(--green); border-color: rgba(34,197,94,0.3); }
+
+    .vc-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .vc-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted);
+    }
+
+    .vc-desc {
+      font-size: 0.76rem;
+      color: var(--muted2);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .vc-sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.3rem;
+    }
+
+    .sources-title {
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0.5rem;
+    }
+
+    .src-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .src-row:last-child { border-bottom: none; }
+    .src-row:hover { background: var(--bg2); }
+
+    .src-name {
+      padding: 0.65rem 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.74rem;
+      color: var(--text);
+    }
+
+    .src-type {
+      padding: 0.65rem 1rem;
+      border-left: 1px solid var(--border);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="social-bar">
+    <a href="https://github.com/nisaozerdem" target="_blank" class="social-link">GH</a>
+    <a href="https://linkedin.com/in/nisa-ozerdem" target="_blank" class="social-link">LI</a>
+    <a href="mailto:nisa.ozerdem@email.com" class="social-link">@</a>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nisa <span class="accent">Ozerdem</span></a>
+    <div class="nav-center"><span>Administration</span><span class="sep">•</span><span>Réseaux</span><span class="sep">•</span><span>Cybersécurité</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">Présentation</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="stages.html">Stages</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li><a href="ctf.html">CTF</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="breadcrumb"><a href="index.html">~</a><span class="sep">/</span><span>veille</span></div>
+      <h1>Veille Technologique</h1>
+      <p class="page-sub">Suivi des actualités IT, cybersécurité et nouvelles technologies</p>
+    </div>
+
+    <div class="section reveal">
+      <div class="section-label">Thématiques</div>
+      <h2 class="section-title">Sujets de veille</h2>
+      <p class="section-desc">Les domaines sur lesquels je réalise une veille active et régulière.</p>
+
+      <div class="veille-grid">
+        <div class="veille-card reveal">
+          <span class="vc-cat cat-secu">Cybersécurité</span>
+          <div class="vc-title">Zero Trust Architecture</div>
+          <div class="vc-date">Veille continue — 2023/2024</div>
+          <div class="vc-desc">Adoption du modèle Zero Trust en entreprise : remplacement du modèle périmétrique traditionnel par une approche "ne jamais faire confiance, toujours vérifier". Analyse des solutions (Microsoft Entra, Zscaler, CrowdStrike).</div>
+          <div class="vc-sources">
+            <span class="tag">ANSSI</span><span class="tag">NIST</span><span class="tag">Microsoft Blog</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <span class="vc-cat cat-secu">Cybersécurité</span>
+          <div class="vc-title">Ransomwares &amp; APT</div>
+          <div class="vc-date">Veille continue — 2023/2024</div>
+          <div class="vc-desc">Évolution des techniques d'attaques ransomware (double extorsion, RaaS), groupes APT actifs en Europe. Analyse des IoC publiés par le CERT-FR et les bulletins ANSSI.</div>
+          <div class="vc-sources">
+            <span class="tag">CERT-FR</span><span class="tag">ANSSI</span><span class="tag">BleepingComputer</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <span class="vc-cat cat-cloud">Cloud</span>
+          <div class="vc-title">Cloud Souverain Européen</div>
+          <div class="vc-date">2024</div>
+          <div class="vc-desc">Développement de l'offre cloud souveraine française et européenne (SecNumCloud, GAIA-X). Enjeux de souveraineté numérique pour les administrations et entreprises soumises au RGPD.</div>
+          <div class="vc-sources">
+            <span class="tag">OVHcloud</span><span class="tag">ANSSI SecNumCloud</span><span class="tag">GAIA-X</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <span class="vc-cat cat-net">Réseaux</span>
+          <div class="vc-title">SD-WAN &amp; SASE</div>
+          <div class="vc-date">2024</div>
+          <div class="vc-desc">Adoption des architectures SD-WAN pour la gestion centralisée des WAN d'entreprise et convergence vers le modèle SASE (Secure Access Service Edge). Comparatif des solutions Cisco Meraki, Fortinet, Palo Alto.</div>
+          <div class="vc-sources">
+            <span class="tag">Cisco Blog</span><span class="tag">Gartner</span><span class="tag">NetworkWorld</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <span class="vc-cat cat-sys">Systèmes</span>
+          <div class="vc-title">Linux &amp; Containers</div>
+          <div class="vc-date">Veille continue</div>
+          <div class="vc-desc">Suivi des nouvelles versions de kernel Linux, évolutions de systemd, adoption de Podman comme alternative à Docker. Montée en puissance de Kubernetes pour l'orchestration en production.</div>
+          <div class="vc-sources">
+            <span class="tag">LWN.net</span><span class="tag">Phoronix</span><span class="tag">CNCF</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <span class="vc-cat cat-secu">Cybersécurité</span>
+          <div class="vc-title">CVE &amp; Vulnérabilités</div>
+          <div class="vc-date">Veille continue</div>
+          <div class="vc-desc">Suivi quotidien des CVE critiques publiées par le NVD et le CERT-FR. Veille sur les bulletins de sécurité Microsoft, Cisco et Linux. Évaluation de l'impact pour les infrastructures courantes.</div>
+          <div class="vc-sources">
+            <span class="tag">NVD NIST</span><span class="tag">CERT-FR</span><span class="tag">Exploit-DB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section reveal">
+      <div class="section-label">Ressources</div>
+      <h2 class="section-title">Sources &amp; Outils de veille</h2>
+      <p class="section-desc">Les sites, flux RSS et outils que j'utilise pour ma veille quotidienne.</p>
+
+      <div class="sources-title">
+        <div class="src-row"><div class="src-name">ANSSI — ssi.gouv.fr</div><div class="src-type">Officiel / FR</div></div>
+        <div class="src-row"><div class="src-name">CERT-FR — cert.ssi.gouv.fr</div><div class="src-type">Alertes sécu</div></div>
+        <div class="src-row"><div class="src-name">BleepingComputer</div><div class="src-type">Actualités sécu</div></div>
+        <div class="src-row"><div class="src-name">The Hacker News</div><div class="src-type">Actualités sécu</div></div>
+        <div class="src-row"><div class="src-name">NVD — nvd.nist.gov</div><div class="src-type">CVE / Vulnérabilités</div></div>
+        <div class="src-row"><div class="src-name">Hack The Box &amp; TryHackMe</div><div class="src-type">Pratique / CTF</div></div>
+        <div class="src-row"><div class="src-name">Cisco Blog &amp; Cisco Learning</div><div class="src-type">Réseaux</div></div>
+        <div class="src-row"><div class="src-name">LWN.net</div><div class="src-type">Linux / Open Source</div></div>
+        <div class="src-row"><div class="src-name">Feedly (agrégateur RSS)</div><div class="src-type">Outil de veille</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-copy">&copy; 2026 - Portfolio créé par <span>Nisa Ozerdem</span></span>
+    <a href="#" class="footer-back">Haut de page &uarr;</a>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
