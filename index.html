@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nisa Ozerdem — BTS SIO option SISR · Rennes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080e1a;
+      --bg2: #0b1220;
+      --surface: #101828;
+      --accent1: #4f8ef7;
+      --accent2: #7eb3ff;
+      --accent3: #a8c8ff;
+      --text: #eef2ff;
+      --muted: #7a8fb0;
+      --border: rgba(79,142,247,0.18);
+      --glow: rgba(79,142,247,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* CANVAS BACKGROUND */
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: rgba(5,11,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--accent1);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent2); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent1);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--accent1); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent1);
+      transition: all 0.3s;
+    }
+
+    /* HERO */
+    #hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      padding-top: 80px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent3);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--accent3);
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.0;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title .name { color: var(--text); }
+    .hero-title .role {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent1);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--accent1);
+      color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+
+    .btn-primary:hover {
+      background: var(--accent3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(201,168,76,0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--accent1);
+      color: var(--accent1);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(201,168,76,0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent1);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 5%;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      color: var(--accent1);
+      letter-spacing: 0.15em;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ABOUT */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    .about-text p strong { color: var(--accent1); font-weight: 700; }
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent3), var(--accent1), var(--accent2));
+    }
+
+    .about-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent1);
+      margin-bottom: 1.5rem;
+    }
+
+    .terminal-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .terminal-line {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      align-items: flex-start;
+    }
+
+    .t-prompt { color: var(--accent3); white-space: nowrap; }
+    .t-key { color: var(--accent1); }
+    .t-val { color: var(--muted); }
+
+    /* SKILLS */
+    #skills {
+      background: linear-gradient(180deg, transparent, rgba(79,142,247,0.03), transparent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .skill-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(79,142,247,0.07), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent1);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(79,142,247,0.12);
+    }
+
+    .skill-card:hover::after { opacity: 1; }
+
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      padding: 0.2rem 0.6rem;
+      background: rgba(79,142,247,0.08);
+      border: 1px solid rgba(79,142,247,0.25);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--accent1);
+      text-transform: uppercase;
+    }
+
+    .skill-bar-wrap {
+      margin-top: 1rem;
+    }
+
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-bar {
+      height: 3px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent3), var(--accent1), var(--accent2));
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+      border-radius: 2px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .project-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(201,168,76,0.08);
+    }
+
+    .project-header {
+      padding: 1.8rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .project-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent2);
+    }
+
+    .project-emoji { font-size: 1.8rem; }
+
+    .project-body { padding: 1.5rem 1.8rem; }
+
+    .project-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-footer {
+      padding: 1rem 1.8rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-link {
+      font-size: 0.7rem;
+      color: var(--accent1);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.3s;
+    }
+
+    .project-link:hover { gap: 0.6rem; }
+
+    /* CONTACT */
+    #contact {
+      background: linear-gradient(180deg, transparent, rgba(79,142,247,0.03), transparent);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+    }
+
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text { color: var(--muted); }
+    .contact-item-text strong { color: var(--text); display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.1rem; }
+
+    /* FORM */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      resize: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent1);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.07);
+    }
+
+    .form-group textarea { min-height: 130px; }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(201,168,76,0.15);
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem 5%;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    footer span { color: var(--accent2); }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CURSOR DOT */
+    .cursor-dot {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--accent1);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s;
+    }
+
+    /* NOTIFICATION */
+    .notif {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--accent3);
+      padding: 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--accent3);
+      z-index: 999;
+      display: none;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 5%; }
+
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--bg2);
+        border-left: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 2.5rem;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        z-index: 99;
+      }
+
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1rem; }
+
+      .hamburger { display: flex; z-index: 100; }
+
+      #about .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .hero-stats { gap: 1.5rem; }
+
+      section { padding: 4rem 5%; }
+
+      .cursor-dot { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="cursor-dot" id="cursor"></div>
+  <div class="notif" id="notif">✓ Message envoyé avec succès !</div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">N<span>.</span>Ozerdem</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">📍 Rennes, Bretagne · BTS SIO option SISR</div>
+      <h1 class="hero-title">
+        <span class="name">Nisa Ozerdem</span>
+        <span class="role">Systèmes &amp; Réseaux</span>
+      </h1>
+      <p class="hero-subtitle">
+        Étudiante en <strong>BTS Services Informatiques aux Organisations</strong>, option <strong>Solutions d'Infrastructure, Systèmes et Réseaux</strong>. Passionnée par l'administration réseau, la sécurité et l'automatisation des infrastructures IT.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">Voir mes projets →</a>
+        <a href="#contact" class="btn-secondary">Me contacter</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">BTS</span><span class="stat-label">SIO · SISR</span></div>
+        <div class="stat"><span class="stat-num">Rennes</span><span class="stat-label">Bretagne 🇫🇷</span></div>
+        <div class="stat"><span class="stat-num">Open</span><span class="stat-label">to work</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">À propos</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Bonjour ! Je suis <strong>Nisa Ozerdem</strong>, étudiante en <strong>BTS Services Informatiques aux Organisations</strong>, option <strong>Solutions d'Infrastructure, Systèmes et Réseaux (SISR)</strong>, basée à Rennes.</p>
+        <p>Ma formation m'a permis de développer une solide expertise en administration de <strong>serveurs, réseaux et sécurité informatique</strong>. Je gère aussi bien les environnements Linux que Windows Server, et je m'intéresse activement aux solutions cloud.</p>
+        <p>Passionnée par la <strong>cybersécurité</strong> et l'automatisation, je cherche à mettre mes compétences en pratique dans un environnement professionnel stimulant.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-card-title">$ whoami</div>
+        <div class="terminal-lines">
+          <div class="terminal-line">
+            <span class="t-prompt">→</span>
+            <span><span class="t-key">name:</span> <span class="t-val">Nisa Ozerdem</span></span>
+          </div>
+          <div class="terminal-line">
+            <span class="t-prompt">→</span>
+            <span><span class="t-key">formation:</span> <span class="t-val">BTS SIO option SISR</span></span>
+          </div>
+          <div class="terminal-line">
+            <span class="t-prompt">→</span>
+            <span><span class="t-key">spécialité:</span> <span class="t-val">Systèmes &amp; Réseaux</span></span>
+          </div>
+          <div class="terminal-line">
+            <span class="t-prompt">→</span>
+            <span><span class="t-key">location:</span> <span class="t-val">Rennes, Bretagne 🇫🇷</span></span>
+          </div>
+          <div class="terminal-line">
+            <span class="t-prompt">→</span>
+            <span><span class="t-key">os:</span> <span class="t-val">Linux / Windows Server</span></span>
+          </div>
+          <div class="terminal-line">
+            <span class="t-prompt">→</span>
+            <span><span class="t-key">status:</span> <span class="t-val" style="color:var(--accent2)">● open to work</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Compétences</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🖥️</div>
+        <div class="skill-name">Administration Systèmes</div>
+        <div class="skill-desc">Gestion des serveurs Linux & Windows, virtualisation, scripting et automatisation.</div>
+        <div class="skill-tags">
+          <span class="tag">Linux</span>
+          <span class="tag">Windows Server</span>
+          <span class="tag">VMware</span>
+          <span class="tag">Bash</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Maîtrise</span><span>92%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Administration Réseaux</div>
+        <div class="skill-desc">Configuration de routeurs, switches, VLAN, protocoles de routage et architectures réseau.</div>
+        <div class="skill-tags">
+          <span class="tag">Cisco</span>
+          <span class="tag">OSPF</span>
+          <span class="tag">BGP</span>
+          <span class="tag">VLAN</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Maîtrise</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔒</div>
+        <div class="skill-name">Cybersécurité</div>
+        <div class="skill-desc">Mise en place de firewalls, VPN, politiques de sécurité et audits d'infrastructure.</div>
+        <div class="skill-tags">
+          <span class="tag">Firewall</span>
+          <span class="tag">VPN</span>
+          <span class="tag">IDS/IPS</span>
+          <span class="tag">SSL/TLS</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Maîtrise</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-name">Cloud & Virtualisation</div>
+        <div class="skill-desc">Déploiement d'infrastructures cloud hybrides, conteneurisation et orchestration.</div>
+        <div class="skill-tags">
+          <span class="tag">Azure</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Proxmox</span>
+          <span class="tag">Kubernetes</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Maîtrise</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-name">Automatisation & DevOps</div>
+        <div class="skill-desc">Automatisation des tâches d'administration, CI/CD et infrastructure as code.</div>
+        <div class="skill-tags">
+          <span class="tag">Ansible</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">Python</span>
+          <span class="tag">Git</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Maîtrise</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">📡</div>
+        <div class="skill-name">Supervision & Monitoring</div>
+        <div class="skill-desc">Surveillance d'infrastructures, alerting, analyse des performances et logs.</div>
+        <div class="skill-tags">
+          <span class="tag">Zabbix</span>
+          <span class="tag">Nagios</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Wireshark</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Maîtrise</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Projets</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div>
+            <div class="project-type">Infrastructure</div>
+          </div>
+          <div class="project-emoji">🏗️</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Infrastructure réseau d'entreprise</div>
+          <div class="project-desc">Conception et déploiement d'une architecture réseau complète pour une PME : segmentation VLAN, routage inter-VLAN, haute disponibilité et sécurisation périmétrique.</div>
+          <div class="skill-tags">
+            <span class="tag">Cisco</span><span class="tag">VLAN</span><span class="tag">OSPF</span><span class="tag">Firewall</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" href="#">Voir les détails →</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div>
+            <div class="project-type">Sécurité</div>
+          </div>
+          <div class="project-emoji">🛡️</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Déploiement solution VPN site-à-site</div>
+          <div class="project-desc">Mise en place d'un tunnel VPN IPSec entre plusieurs sites distants avec authentification à deux facteurs et chiffrement AES-256.</div>
+          <div class="skill-tags">
+            <span class="tag">VPN</span><span class="tag">IPSec</span><span class="tag">PKI</span><span class="tag">OpenVPN</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" href="#">Voir les détails →</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div>
+            <div class="project-type">Automatisation</div>
+          </div>
+          <div class="project-emoji">🤖</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Automatisation des déploiements serveurs</div>
+          <div class="project-desc">Création de playbooks Ansible pour le provisioning automatique de serveurs Linux : configuration système, installation des services, durcissement sécurité.</div>
+          <div class="skill-tags">
+            <span class="tag">Ansible</span><span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">YAML</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" href="#">Voir les détails →</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div>
+            <div class="project-type">Cloud</div>
+          </div>
+          <div class="project-emoji">☁️</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Migration infrastructure vers Azure</div>
+          <div class="project-desc">Migration d'une infrastructure on-premise vers Azure : VM, VNet, NSG, Azure AD et mise en place d'une politique de backup et PRA.</div>
+          <div class="skill-tags">
+            <span class="tag">Azure</span><span class="tag">Terraform</span><span class="tag">Azure AD</span><span class="tag">PRA</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" href="#">Voir les détails →</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div>
+            <div class="project-type">Supervision</div>
+          </div>
+          <div class="project-emoji">📊</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Dashboard de supervision Grafana</div>
+          <div class="project-desc">Mise en place d'une stack de monitoring avec Prometheus, Grafana et alerting Slack pour superviser l'ensemble de l'infrastructure en temps réel.</div>
+          <div class="skill-tags">
+            <span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">Docker</span><span class="tag">Alerting</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" href="#">Voir les détails →</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div>
+            <div class="project-type">Lab & Formation</div>
+          </div>
+          <div class="project-emoji">🔬</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Home Lab de cybersécurité</div>
+          <div class="project-desc">Construction d'un environnement de test virtualisé pour s'entraîner aux CTF, tester des outils de pentest et simuler des attaques réseau en environnement isolé.</div>
+          <div class="skill-tags">
+            <span class="tag">Proxmox</span><span class="tag">Kali</span><span class="tag">Metasploit</span><span class="tag">Wireshark</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" href="#">Voir les détails →</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Travaillons ensemble 🚀</h3>
+        <p>Vous avez un projet d'infrastructure, une mission en administration systèmes et réseaux, ou souhaitez simplement échanger ? N'hésitez pas à me contacter !</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              nisa.ozerdem@email.com
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Localisation</strong>
+              France 🇫🇷
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">💼</div>
+            <div class="contact-item-text">
+              <strong>LinkedIn</strong>
+              linkedin.com/in/nisa-ozerdem
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🐙</div>
+            <div class="contact-item-text">
+              <strong>GitHub</strong>
+              github.com/nisaozerdem
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contact-form">
+        <div class="form-group">
+          <label for="name">Votre nom</label>
+          <input type="text" id="name" placeholder="John Doe" />
+        </div>
+        <div class="form-group">
+          <label for="email">Votre email</label>
+          <input type="email" id="email" placeholder="john@exemple.com" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input type="text" id="subject" placeholder="Proposition de mission" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Décrivez votre projet..."></textarea>
+        </div>
+        <button type="button" class="form-submit" id="send-btn">Envoyer le message ↗</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Conçu & développé par <span>Nisa Ozerdem</span> — 2025 · Tous droits réservés</p>
+  </footer>
+
+  <script>
+    // ─── CANVAS NETWORK ANIMATION ───────────────────────────────────
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, nodes = [];
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+
+    class Node {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.r = Math.random() * 2 + 1;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > W) this.vx *= -1;
+        if (this.y < 0 || this.y > H) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(79,142,247,0.8)';
+        ctx.fill();
+      }
+    }
+
+    function initNodes() {
+      nodes = [];
+      const count = Math.min(80, Math.floor(W * H / 14000));
+      for (let i = 0; i < count; i++) nodes.push(new Node());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      nodes.forEach(n => { n.update(); n.draw(); });
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = `rgba(79,142,247,${0.4 * (1 - dist / 140)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    resize(); initNodes(); animate();
+    window.addEventListener('resize', () => { resize(); initNodes(); });
+
+    // ─── HAMBURGER MENU ─────────────────────────────────────────────
+    const ham = document.getElementById('hamburger');
+    const nav = document.getElementById('nav-links');
+    ham.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+    // ─── SCROLL REVEAL ───────────────────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Animate skill bars
+          e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(r => observer.observe(r));
+
+    // ─── CURSOR DOT ──────────────────────────────────────────────────
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // ─── CONTACT FORM ────────────────────────────────────────────────
+    document.getElementById('send-btn').addEventListener('click', () => {
+      const notif = document.getElementById('notif');
+      notif.style.display = 'block';
+      setTimeout(() => { notif.style.display = 'none'; }, 3500);
+      document.getElementById('contact-form').querySelectorAll('input, textarea').forEach(el => el.value = '');
+    });
+  </script>
+</body>
+</html>
